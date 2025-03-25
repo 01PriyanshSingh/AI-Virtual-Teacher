@@ -21,7 +21,7 @@ def generate_syllabus(subject):
     }
 
     prompt = f"""
-    Generate a detailed syllabus for the subject "{subject}" with:
+    Generate a detailed  syllabus for the subject "{subject}" with:
     - A brief introduction.
     - A list of key topics (at least 5).
     - A short summary in 1-2 lines.
