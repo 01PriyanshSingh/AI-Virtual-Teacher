@@ -3,7 +3,8 @@ from flask_cors import CORS
 import requests
 import os
 from dotenv import load_dotenv
-import json  # Add this import
+import json
+from subtopics_generator import generate_subtopics  # Import subtopics function
 
 load_dotenv()
 
@@ -63,5 +64,19 @@ def generate():
     syllabus = generate_syllabus(subject)
     return jsonify(syllabus)
 
+
+@app.route("/generate_subtopics", methods=["POST"])  # ✅ Ensure this route exists
+def generate_sub():
+    data = request.json
+    topic = data.get("topic", "")
+    if not topic:
+        return jsonify({"error": "Topic is required"}), 400
+    
+    subtopics = generate_subtopics(topic)
+    return jsonify(subtopics)
+
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
