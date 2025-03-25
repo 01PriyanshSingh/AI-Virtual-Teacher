@@ -2,6 +2,7 @@ import os
 import requests
 import json
 from dotenv import load_dotenv
+from img_fetch import download_images  # Import the function
 
 load_dotenv()
 
@@ -76,3 +77,15 @@ def process_key_topics(key_topics, output_file="subtopics.json"):
     with open(output_file, "w") as file:
         json.dump(all_subtopics, file, indent=4)
     print(f"Subtopics saved to {output_file}")
+
+    # Collect all titles for image fetching
+    titles = []
+    for subtopic_list in all_subtopics.values():
+        for subtopic in subtopic_list:
+            if "title" in subtopic:
+                titles.append(subtopic["title"])
+
+    # Call download_images for each title one by one
+    for title in titles:
+        print(f"Fetching image for title: {title}")
+        download_images(title, 1)  # Pass the title as a string

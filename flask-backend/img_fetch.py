@@ -1,7 +1,7 @@
 from bing_image_downloader import downloader
 import os
 
-def download_images(query, limit=5, output_dir='downloaded_images'):
+def download_images(query, limit=1, output_dir='downloaded_images'):
     """
     Downloads images based on a search query.
 
