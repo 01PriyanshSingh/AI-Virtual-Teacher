@@ -18,16 +18,27 @@ def generate_subtopics(key_topic):
 
     prompt = f"""
     For the key topic "{key_topic}", generate a list of subtopics with explanations. 
+    Each subtopic should include a title for fetching an image.
+
     Return the response in structured JSON format:
     {{
-      "key_topic": "{key_topic}",
-      "subtopics": [
-        {{"name": "<Subtopic 1>", "explanation": "<Explanation for Subtopic 1>"}},
-        {{"name": "<Subtopic 2>", "explanation": "<Explanation for Subtopic 2>"}},
+    "key_topic": "{key_topic}",
+    "subtopics": [
+        {{
+        "name": "<Subtopic 1>",
+        "title": "<Title for Image Search>",
+        "explanation": "<Explanation for Subtopic 1>"
+        }},
+        {{
+        "name": "<Subtopic 2>",
+        "title": "<Title for Image Search>",
+        "explanation": "<Explanation for Subtopic 2>"
+        }},
         ...
-      ]
+    ]
     }}
     """
+
 
     data = {"model": MODEL, "messages": [{"role": "user", "content": prompt}]}
 
