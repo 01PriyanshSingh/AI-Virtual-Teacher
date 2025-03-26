@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import requests
 import os
@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 import json
 from content_gen import generate_subtopics, process_key_topics  # Import the function
 import shutil
-
 
 load_dotenv()
 
@@ -90,6 +89,34 @@ def generate():
         syllabus["subtopics"] = subtopics  
 
     return jsonify(syllabus)
+
+SUBTOPICS_FILE = "subtopics.json"
+IMAGE_FOLDER = "downloaded_images"
+
+@app.route("/get_subtopics")
+def get_subtopics():
+    """Return subtopics from JSON."""
+    if os.path.exists(SUBTOPICS_FILE):
+        with open(SUBTOPICS_FILE, "r") as file:
+            return jsonify(json.load(file))
+    return jsonify({"error": "subtopics.json not found"}), 404
+
+@app.route("/get_image/<title>")
+def get_image(title):
+    """Fetch the first image for a given subtopic title."""
+    title = title.replace("%20", " ")  # Ensure proper folder name
+    folder_path = os.path.join(IMAGE_FOLDER, title)
+    
+    if not os.path.exists(folder_path) or not os.path.isdir(folder_path):
+        return jsonify({"error": f"Folder '{title}' not found"}), 404
+
+    # Look for image files dynamically
+    for ext in ["jpg", "jpeg", "png", "gif"]:
+        image_path = os.path.join(folder_path, f"Image_1.{ext}")
+        if os.path.exists(image_path):
+            return send_from_directory(folder_path, f"Image_1.{ext}")
+
+    return jsonify({"error": "Image not found"}), 404
 
 
 if __name__ == "__main__":
