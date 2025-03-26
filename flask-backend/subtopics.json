@@ -1,227 +1,158 @@
 {
-    "Introduction to AI and Machine Learning": [
+    "Alkanes and Cycloalkanes": [
         {
-            "name": "Definition and History of AI",
-            "title": "Evolution of Artificial Intelligence",
-            "explanation": "This subtopic covers the basic definition of Artificial Intelligence (AI), its historical development, and key milestones in the field. It introduces how AI has evolved from its inception to the current state, including notable achievements and setbacks."
+            "name": "Introduction to Alkanes",
+            "title": "Methane Molecular Structure",
+            "explanation": "Alkanes are a class of saturated hydrocarbons, consisting only of carbon and hydrogen atoms. They are the simplest type of hydrocarbon and are characterized by single bonds between carbon atoms."
         },
         {
-            "name": "Machine Learning Fundamentals",
-            "title": "Machine Learning Basics Diagram",
-            "explanation": "This subtopic delves into the fundamentals of Machine Learning (ML), a subset of AI. It explains the types of ML (supervised, unsupervised, reinforcement learning), the ML workflow, and introduces key algorithms and techniques used in the field."
+            "name": "Properties of Alkanes",
+            "title": "Alkane Boiling Points Graph",
+            "explanation": "Alkanes have unique physical and chemical properties, such as low boiling points, high flammability, and insolubility in water. These properties make them useful for various industrial and commercial applications."
         },
         {
-            "name": "Neural Networks and Deep Learning",
-            "title": "Neural Network Architecture",
-            "explanation": "This subtopic explores Neural Networks and Deep Learning, crucial components of modern AI. It discusses the structure and function of neural networks, types of deep learning models (CNNs, RNNs, LSTM), and their applications in image recognition, natural language processing, and more."
+            "name": "Nomenclature of Alkanes",
+            "title": "Alkane Naming Convention Diagram",
+            "explanation": "Alkanes are named using a specific set of rules, which involve identifying the longest continuous chain of carbon atoms and adding prefixes and suffixes to indicate the presence of substituents."
         },
         {
-            "name": "Applications of AI and ML",
-            "title": "Real-World AI Applications",
-            "explanation": "This subtopic highlights the diverse applications of AI and ML across various industries, including healthcare, finance, transportation, education, and entertainment. It showcases how AI and ML are being used to solve real-world problems and improve services."
+            "name": "Cycloalkanes",
+            "title": "Cyclohexane Molecular Model",
+            "explanation": "Cycloalkanes are a type of alkane that contains a ring of carbon atoms. They have similar properties to alkanes, but their ring structure gives them unique chemical and physical characteristics."
         },
         {
-            "name": "Ethics and Challenges in AI",
-            "title": "AI Ethics Considerations",
-            "explanation": "This subtopic addresses the ethical considerations, challenges, and risks associated with the development and deployment of AI systems. It discusses issues like bias, privacy, job displacement, and the need for responsible AI development and regulation."
+            "name": "Conformations of Cycloalkanes",
+            "title": "Cyclohexane Conformational Isomers",
+            "explanation": "Cycloalkanes can exist in different conformations, which are three-dimensional arrangements of their atoms in space. The conformation of a cycloalkane can affect its chemical reactivity and physical properties."
         },
         {
-            "name": "Tools and Technologies for AI and ML",
-            "title": "Popular AI and ML Frameworks",
-            "explanation": "This subtopic introduces the key tools, frameworks, and programming languages used in AI and ML development, such as TensorFlow, PyTorch, Keras, and scikit-learn. It provides an overview of how these technologies facilitate the building, training, and deployment of AI and ML models."
+            "name": "Reactions of Alkanes",
+            "title": "Alkane Combustion Reaction Equation",
+            "explanation": "Alkanes undergo various reactions, such as combustion, substitution, and cracking. These reactions are important in the production of fuels, chemicals, and other industrial products."
         },
         {
-            "name": "Future of AI and ML",
-            "title": "The Future of Artificial Intelligence",
-            "explanation": "This subtopic speculates on the future developments and trends in AI and ML, including potential breakthroughs, emerging applications, and the potential impact on society and the economy. It considers the possibilities of advanced AI systems and their integration into daily life."
+            "name": "Reactions of Cycloalkanes",
+            "title": "Cyclohexane Hydrogenation Reaction",
+            "explanation": "Cycloalkanes undergo similar reactions to alkanes, but their ring structure can affect the outcome of these reactions. Cycloalkanes are also used as starting materials in the synthesis of other organic compounds."
         }
     ],
-    "Deep Learning and Neural Networks": [
+    "Alkenes and Alkynes": [
         {
-            "name": "Introduction to Deep Learning",
-            "title": "Deep Learning Neural Network Diagram",
-            "explanation": "Deep learning is a subset of machine learning that involves the use of artificial neural networks to analyze and interpret data. It has become a crucial aspect of modern technology, enabling applications such as image recognition, natural language processing, and autonomous vehicles."
+            "name": "Introduction to Alkenes",
+            "title": "Alkene Molecular Structure",
+            "explanation": "Alkenes are a class of unsaturated hydrocarbons that contain at least one carbon-to-carbon double bond. This double bond is the key characteristic that distinguishes alkenes from alkanes. The general formula for alkenes is CnH2n, and they can be found in both linear and cyclic forms."
         },
         {
-            "name": "Neural Network Architecture",
-            "title": "Neural Network Architecture Diagram",
-            "explanation": "Neural network architecture refers to the design and structure of artificial neural networks. This includes the arrangement of layers, the type of layers used, and the connections between them. Common architectures include feedforward networks, convolutional neural networks, and recurrent neural networks."
+            "name": "Properties of Alkenes",
+            "title": "Alkene Physical Properties Table",
+            "explanation": "Alkenes exhibit unique physical and chemical properties due to the presence of the double bond. They have lower boiling points compared to alkanes of similar molecular weight, and their reactivity is significantly higher due to the electron-rich nature of the double bond. This makes them more susceptible to addition reactions."
         },
         {
-            "name": "Convolutional Neural Networks (CNNs)",
-            "title": "Convolutional Neural Network Image Classification",
-            "explanation": "Convolutional neural networks are a type of neural network designed for image and video processing. They use convolutional and pooling layers to extract features from data, and are commonly used for tasks such as image classification, object detection, and image segmentation."
+            "name": "Synthesis of Alkenes",
+            "title": "Dehydrohalogenation Reaction Mechanism",
+            "explanation": "One of the primary methods for synthesizing alkenes is through the dehydrohalogenation (E2) reaction of alkyl halides. This reaction involves the removal of a hydrogen atom and a halogen atom from adjacent carbon atoms, resulting in the formation of an alkene. The reaction is typically facilitated by a strong base."
         },
         {
-            "name": "Recurrent Neural Networks (RNNs)",
-            "title": "Recurrent Neural Network Time Series Forecasting",
-            "explanation": "Recurrent neural networks are a type of neural network designed for sequential data such as time series data, audio, and text. They use recurrent connections to maintain a hidden state, allowing them to capture temporal relationships in data and make predictions about future values."
+            "name": "Reactions of Alkenes",
+            "title": "Electrophilic Addition Reaction to Alkene",
+            "explanation": "Alkenes undergo a variety of reactions, with the most common being electrophilic addition reactions. In these reactions, an electrophile (a species that is electron-poor) attacks the electron-rich double bond of the alkene, leading to the addition of the electrophile across the double bond. Examples include the addition of hydrogen (hydrogenation), water (hydration), and halogens (halogenation)."
         },
         {
-            "name": "Training Deep Learning Models",
-            "title": "Deep Learning Model Training Process",
-            "explanation": "Training deep learning models involves adjusting the weights and biases of the network to minimize the difference between predicted and actual outputs. This is typically done using backpropagation and optimization algorithms such as stochastic gradient descent and Adam."
+            "name": "Introduction to Alkynes",
+            "title": "Alkyne Molecular Structure",
+            "explanation": "Alkynes are another class of unsaturated hydrocarbons, characterized by the presence of at least one carbon-to-carbon triple bond. The general formula for alkynes is CnH2n-2, indicating that they have even fewer hydrogen atoms than alkenes. Alkynes are less common in nature than alkenes but are still significant in organic chemistry."
         },
         {
-            "name": "Deep Learning Applications",
-            "title": "Deep Learning Applications in Healthcare and Finance",
-            "explanation": "Deep learning has a wide range of applications across industries, including healthcare, finance, autonomous vehicles, and natural language processing. It is used for tasks such as image recognition, speech recognition, and predictive modeling, and has the potential to drive significant innovation and improvement in these fields."
+            "name": "Properties of Alkynes",
+            "title": "Alkyne Physical Properties Comparison",
+            "explanation": "Similar to alkenes, alkynes have unique properties. They are also less saturated than alkanes, leading to higher reactivity. However, the triple bond in alkynes makes them even more electron-rich and reactive than alkenes, particularly towards addition reactions. The linear alkynes are slightly less stable than the corresponding alkenes due to the higher energy associated with the triple bond."
         },
         {
-            "name": "Deep Learning Challenges and Limitations",
-            "title": "Deep Learning Challenges and Limitations Diagram",
-            "explanation": "Despite its potential, deep learning also has several challenges and limitations, including the need for large amounts of data, computational requirements, and the risk of overfitting and underfitting. Additionally, deep learning models can be difficult to interpret and may be vulnerable to bias and adversarial attacks."
+            "name": "Synthesis of Alkynes",
+            "title": "Alkyne Synthesis via Alkyl Halide",
+            "explanation": "The synthesis of alkynes can be achieved through several methods, including the dehydrohalogenation of alkyl dihalides. This reaction involves two steps of dehydrohalogenation from a vicinal dihalide, resulting in the formation of an alkyne. Another method involves the reaction of terminal alkynes with metal acetylides, facilitating the formation of longer alkynes."
         },
         {
-            "name": "Future of Deep Learning",
-            "title": "Future of Deep Learning and AI",
-            "explanation": "The future of deep learning is expected to be shaped by advancements in areas such as explainability, transparency, and edge AI. As the field continues to evolve, we can expect to see new applications and innovations emerge, such as the integration of deep learning with other technologies like blockchain and the Internet of Things."
+            "name": "Reactions of Alkynes",
+            "title": "Electrophilic Addition to Alkyne",
+            "explanation": "Alkynes undergo similar addition reactions to alkenes, including hydrogenation, hydration, and halogenation. However, due to the higher electron density around the triple bond, alkynes are more reactive than alkenes. In many cases, the addition reactions to alkynes can result in the formation of alkenes as intermediates, which can then undergo further addition reactions."
         }
     ],
-    "Natural Language Processing (NLP) and Text Analysis": [
+    "Aromatic Compounds": [
         {
-            "name": "Tokenization",
-            "title": "NLP Tokenization Process",
-            "explanation": "Tokenization is the process of breaking down text into individual words or tokens. This is a fundamental step in NLP, as it allows for the analysis of text at the word or phrase level."
+            "name": "Introduction to Aromatic Compounds",
+            "title": "Structure of Benzene",
+            "explanation": "Aromatic compounds are a class of organic compounds that contain a planar, ring-shaped arrangement of atoms with alternating double and single bonds. This arrangement is known as a conjugated system, which gives aromatic compounds their unique properties and reactivity. The most well-known aromatic compound is benzene, which consists of a six-membered ring of carbon atoms with alternating double bonds."
         },
         {
-            "name": "Part-of-Speech Tagging",
-            "title": "Part-of-Speech Tagging in NLP",
-            "explanation": "Part-of-Speech tagging is the process of identifying the grammatical category of each word in a sentence, such as noun, verb, or adjective. This is useful for understanding the meaning and context of text."
+            "name": "Properties of Aromatic Compounds",
+            "title": "Aromatic Compound Molecular Orbitals",
+            "explanation": "Aromatic compounds exhibit several characteristic properties, including a planar molecular structure, a lack of reactivity towards electrophilic addition reactions, and a distinctive pattern of absorption in the ultraviolet region of the electromagnetic spectrum. These properties are due to the delocalization of electrons in the conjugated system, which results in a stabilization of the molecule."
         },
         {
-            "name": "Named Entity Recognition",
-            "title": "Named Entity Recognition in Text Analysis",
-            "explanation": "Named Entity Recognition is the process of identifying named entities in text, such as people, places, and organizations. This is useful for extracting specific information from text and understanding its context."
+            "name": "Types of Aromatic Compounds",
+            "title": "Polycyclic Aromatic Hydrocarbons",
+            "explanation": "There are several types of aromatic compounds, including benzene and its derivatives, polycyclic aromatic hydrocarbons (PAHs), and heterocyclic aromatic compounds. PAHs are a class of aromatic compounds that contain multiple fused rings, and are commonly found in fossil fuels and combustion products. Heterocyclic aromatic compounds, on the other hand, contain atoms other than carbon in the ring system, such as nitrogen, oxygen, or sulfur."
         },
         {
-            "name": "Sentiment Analysis",
-            "title": "Sentiment Analysis in NLP",
-            "explanation": "Sentiment Analysis is the process of determining the emotional tone or sentiment of text, such as positive, negative, or neutral. This is useful for understanding public opinion or customer feedback."
+            "name": "Synthesis of Aromatic Compounds",
+            "title": "Friedel-Crafts Alkylation Reaction",
+            "explanation": "Aromatic compounds can be synthesized through a variety of methods, including the Friedel-Crafts alkylation and acylation reactions, the Grignard reaction, and the Suzuki-Miyaura coupling reaction. These reactions involve the introduction of functional groups or substituents onto the aromatic ring, and are widely used in the production of pharmaceuticals, agrochemicals, and other specialty chemicals."
         },
         {
-            "name": "Topic Modeling",
-            "title": "Topic Modeling in Text Analysis",
-            "explanation": "Topic Modeling is the process of identifying underlying themes or topics in a large corpus of text. This is useful for understanding the structure and content of text data."
+            "name": "Reactions of Aromatic Compounds",
+            "title": "Electrophilic Aromatic Substitution Mechanism",
+            "explanation": "Aromatic compounds undergo a range of reactions, including electrophilic aromatic substitution, nucleophilic aromatic substitution, and addition reactions. Electrophilic aromatic substitution involves the substitution of a functional group or substituent onto the aromatic ring, and is an important reaction in the synthesis of many aromatic compounds. Nucleophilic aromatic substitution, on the other hand, involves the substitution of a leaving group on the aromatic ring with a nucleophile."
         },
         {
-            "name": "Language Modeling",
-            "title": "Language Modeling in NLP",
-            "explanation": "Language Modeling is the process of predicting the next word in a sequence of text, given the context of the previous words. This is useful for generating text, such as in chatbots or language translation systems."
-        },
-        {
-            "name": "Text Classification",
-            "title": "Text Classification in NLP",
-            "explanation": "Text Classification is the process of assigning a category or label to a piece of text, such as spam vs. non-spam email. This is useful for automating tasks, such as email filtering or document categorization."
-        },
-        {
-            "name": "Information Retrieval",
-            "title": "Information Retrieval in Text Analysis",
-            "explanation": "Information Retrieval is the process of finding and retrieving relevant documents or information from a large corpus of text. This is useful for searching and retrieving specific information, such as in search engines or digital libraries."
-        },
-        {
-            "name": "Machine Translation",
-            "title": "Machine Translation in NLP",
-            "explanation": "Machine Translation is the process of automatically translating text from one language to another. This is useful for communicating with people who speak different languages and for accessing information in different languages."
-        },
-        {
-            "name": "Deep Learning in NLP",
-            "title": "Deep Learning Applications in NLP",
-            "explanation": "Deep Learning in NLP refers to the use of neural networks and other deep learning techniques to analyze and understand natural language. This is useful for improving the accuracy and effectiveness of NLP tasks, such as language modeling and text classification."
+            "name": "Applications of Aromatic Compounds",
+            "title": "Aromatic Compounds in Pharmaceuticals",
+            "explanation": "Aromatic compounds have a wide range of applications, including in the production of pharmaceuticals, agrochemicals, dyes and pigments, and materials science. Many aromatic compounds exhibit biological activity, and are used as drugs or lead compounds in the development of new therapeutics. Aromatic compounds are also used in the production of polymers, adhesives, and other materials, due to their unique properties and reactivity."
         }
     ],
-    "Computer Vision and Image Processing": [
+    "Alcohols and Ethers": [
         {
-            "name": "Image Enhancement",
-            "title": "Image Enhancement Techniques",
-            "explanation": "Image enhancement involves improving the quality of an image by adjusting factors like brightness, contrast, and noise reduction to make it more visually appealing or suitable for further processing."
+            "name": "Introduction to Alcohols",
+            "title": "Alcohol Molecular Structure",
+            "explanation": "Alcohols are a class of organic compounds that contain a hydroxyl (-OH) group attached to a carbon atom. They can be classified into primary, secondary, and tertiary alcohols based on the number of carbon atoms bonded to the carbon atom bearing the -OH group."
         },
         {
-            "name": "Object Detection",
-            "title": "Object Detection in Images",
-            "explanation": "Object detection is a technique used in computer vision to locate and classify objects within digital images or videos. It's crucial for applications like surveillance, self-driving cars, and facial recognition."
+            "name": "Physical and Chemical Properties of Alcohols",
+            "title": "Alcohol Boiling Points and Solubility",
+            "explanation": "Alcohols exhibit unique physical and chemical properties, such as higher boiling points and solubility in water, due to the presence of hydrogen bonding between molecules. They can also undergo various chemical reactions, including oxidation and dehydration."
         },
         {
-            "name": "Image Segmentation",
-            "title": "Image Segmentation Examples",
-            "explanation": "Image segmentation is the process of dividing an image into its constituent parts or objects, allowing for the separation of objects or regions of interest from the background."
+            "name": "Preparation of Alcohols",
+            "title": "Hydration of Alkenes to Form Alcohols",
+            "explanation": "Alcohols can be prepared through various methods, including the hydration of alkenes, reduction of carbonyl compounds, and substitution reactions involving alkyl halides. The choice of method depends on the specific alcohol being synthesized and the availability of starting materials."
         },
         {
-            "name": "Facial Recognition",
-            "title": "Facial Recognition Technology",
-            "explanation": "Facial recognition is a method of identifying or verifying the identity of an individual using their face. It's widely used in security systems, social media, and various applications requiring personal identification."
+            "name": "Reactions of Alcohols",
+            "title": "Dehydration of Alcohols to Form Alkenes",
+            "explanation": "Alcohols can undergo a range of reactions, including oxidation, dehydration, and substitution. Dehydration reactions involve the loss of a water molecule to form an alkene, while oxidation reactions involve the loss of hydrogen atoms to form a carbonyl compound."
         },
         {
-            "name": "Image Classification",
-            "title": "Image Classification Models",
-            "explanation": "Image classification involves categorizing images into predefined categories or classes. It's a fundamental problem in computer vision with applications in areas like product categorization, medical diagnosis, and autonomous vehicles."
+            "name": "Introduction to Ethers",
+            "title": "Ether Molecular Structure",
+            "explanation": "Ethers are a class of organic compounds that contain an ether group (-O-), which consists of an oxygen atom bonded to two alkyl or aryl groups. They are isomeric with alcohols and can be classified into symmetrical and unsymmetrical ethers."
         },
         {
-            "name": "Deep Learning in Computer Vision",
-            "title": "Deep Learning for Computer Vision",
-            "explanation": "Deep learning techniques, such as convolutional neural networks (CNNs), have revolutionized the field of computer vision by providing state-of-the-art performance in tasks like image recognition, object detection, and image segmentation."
+            "name": "Physical and Chemical Properties of Ethers",
+            "title": "Ether Boiling Points and Solubility",
+            "explanation": "Ethers exhibit lower boiling points and solubility in water compared to alcohols, due to the absence of hydrogen bonding between molecules. They are also less reactive than alcohols and do not undergo oxidation reactions."
         },
         {
-            "name": "Computer Vision Applications",
-            "title": "Real-World Computer Vision Applications",
-            "explanation": "Computer vision has numerous applications across various industries, including healthcare, manufacturing, transportation, and consumer electronics, enabling tasks like quality inspection, medical imaging, and robotics."
+            "name": "Preparation of Ethers",
+            "title": "Williamson Ether Synthesis",
+            "explanation": "Ethers can be prepared through various methods, including the Williamson ether synthesis, which involves the reaction of an alkyl halide with a sodium alkoxide. This method is commonly used to prepare symmetrical and unsymmetrical ethers."
         },
         {
-            "name": "Image Restoration",
-            "title": "Image Restoration Techniques",
-            "explanation": "Image restoration aims to reconstruct an original image from a degraded version. It involves removing noise, correcting for blur, or addressing other distortions to improve image quality."
-        },
-        {
-            "name": "3D Reconstruction",
-            "title": "3D Reconstruction from Images",
-            "explanation": "3D reconstruction is the process of creating a three-dimensional model from two-dimensional images. It's used in applications such as architectural modeling, film production, and video game development."
-        },
-        {
-            "name": "Motion Analysis",
-            "title": "Motion Analysis in Videos",
-            "explanation": "Motion analysis involves tracking the movement of objects or people within video sequences. It's used for applications like surveillance, sports analysis, and human-computer interaction."
+            "name": "Reactions of Ethers",
+            "title": "Acidic Cleavage of Ethers",
+            "explanation": "Ethers can undergo various reactions, including acidic cleavage, which involves the reaction of an ether with a strong acid to form an alkyl halide and an alcohol. They can also undergo oxidation reactions, although these are less common than those of alcohols."
         }
     ],
-    "Robotics and Autonomous Systems": [
-        {
-            "name": "Artificial Intelligence in Robotics",
-            "title": "Robot with AI Brain",
-            "explanation": "This subtopic explores the integration of artificial intelligence (AI) in robotics, enabling robots to learn, adapt, and make decisions autonomously. It covers the development of AI algorithms and their applications in various robotic systems."
-        },
-        {
-            "name": "Autonomous Navigation Systems",
-            "title": "Self-Driving Car Navigation",
-            "explanation": "This subtopic focuses on the design and development of autonomous navigation systems that enable robots and vehicles to move and interact with their environment without human intervention. It includes the use of sensors, mapping, and localization techniques."
-        },
-        {
-            "name": "Human-Robot Interaction",
-            "title": "Robot Interacting with Human",
-            "explanation": "This subtopic examines the interaction between humans and robots, including the design of user interfaces, communication protocols, and social behaviors. It aims to create robots that can effectively collaborate with humans and understand their needs and emotions."
-        },
-        {
-            "name": "Robotics in Healthcare",
-            "title": "Robotic Surgery Assistant",
-            "explanation": "This subtopic explores the applications of robotics in healthcare, including robotic-assisted surgery, rehabilitation, and patient care. It covers the development of robots that can assist healthcare professionals and improve patient outcomes."
-        },
-        {
-            "name": "Swarm Robotics",
-            "title": "Swarm of Robots",
-            "explanation": "This subtopic focuses on the development of swarm robotics, where multiple robots interact and cooperate to achieve a common goal. It includes the design of decentralized control algorithms and the application of swarm robotics in areas such as search and rescue, environmental monitoring, and agriculture."
-        },
-        {
-            "name": "Robotics in Manufacturing",
-            "title": "Industrial Robot Arm",
-            "explanation": "This subtopic examines the use of robotics in manufacturing, including the design and development of robotic systems for tasks such as assembly, welding, and material handling. It covers the benefits of robotics in improving efficiency, productivity, and product quality."
-        },
-        {
-            "name": "Computer Vision in Robotics",
-            "title": "Robot with Camera Vision",
-            "explanation": "This subtopic explores the application of computer vision in robotics, including the use of cameras, sensors, and machine learning algorithms to enable robots to perceive and understand their environment. It covers the development of computer vision systems for tasks such as object recognition, tracking, and scene understanding."
-        },
-        {
-            "name": "Cyber-Physical Systems",
-            "title": "Robot with Cyber-Physical System",
-            "explanation": "This subtopic focuses on the integration of physical and computational components to create cyber-physical systems, which are essential for the development of autonomous robots. It covers the design and development of cyber-physical systems, including the use of sensors, actuators, and control algorithms."
-        }
-    ]
+    "Carbonyl Compounds": {
+        "error": "Error 429: {\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01jgxtzvv3etm8qb6cr095095f` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 7064, Requested 156. Please try again in 12.208s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n"
+    }
 }

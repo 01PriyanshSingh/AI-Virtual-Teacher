@@ -5,6 +5,7 @@ import os
 from dotenv import load_dotenv
 import json
 from content_gen import generate_subtopics, process_key_topics  # Import the function
+import shutil
 
 
 load_dotenv()
@@ -18,6 +19,9 @@ def generate_syllabus(subject):
     file_path = "subtopics.json"
     if os.path.exists(file_path):
         os.remove(file_path)
+    folder_path = "downloaded_images"
+    if os.path.exists(folder_path) and os.path.isdir(folder_path):
+        shutil.rmtree(folder_path)
     url = "https://api.groq.com/openai/v1/chat/completions"
     headers = {
         "Content-Type": "application/json",
