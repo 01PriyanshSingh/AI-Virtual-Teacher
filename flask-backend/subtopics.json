@@ -1,162 +1,78 @@
 {
-    "Definition and Laws of Reflection": [
+    "Method Overloading": [
         {
-            "name": "Introduction to Reflection",
-            "title": "Law of Reflection Diagram",
-            "explanation": "Reflection is the change in direction of a wavefront at a surface that causes it to bounce back. This occurs when a wave hits a barrier or surface and returns to its original medium."
+            "name": "Introduction to Method Overloading",
+            "title": "Method Overloading in Java",
+            "explanation": "Method overloading is a feature in object-oriented programming that allows multiple methods with the same name to be defined, as long as they have different parameter lists. This means that a class can have multiple methods with the same name, but with different numbers or types of parameters."
         },
         {
-            "name": "Laws of Reflection",
-            "title": "Reflection of Light Diagram",
-            "explanation": "The laws of reflection state that the incident ray, the reflected ray, and the normal to the surface all lie in the same plane, and the angle of incidence equals the angle of reflection."
+            "name": "Method Signature",
+            "title": "Method Signature in Programming",
+            "explanation": "The method signature is a combination of the method name and its parameter list. It is used to identify a method and distinguish it from other methods with the same name. The method signature does not include the return type, so two methods with the same name and parameters but different return types cannot be overloaded."
         },
         {
-            "name": "Angle of Incidence and Reflection",
-            "title": "Incident and Reflected Angles",
-            "explanation": "The angle of incidence is the angle between the incident ray and the normal to the surface. The angle of reflection is the angle between the reflected ray and the normal to the surface, and it is equal to the angle of incidence."
+            "name": "Benefits of Method Overloading",
+            "title": "Benefits of Method Overloading in OOP",
+            "explanation": "Method overloading provides several benefits, including improved code readability, increased flexibility, and reduced code duplication. It allows developers to define multiple methods with the same name, making the code more intuitive and easier to understand."
         },
         {
-            "name": "Specular and Diffuse Reflection",
-            "title": "Specular vs Diffuse Reflection",
-            "explanation": "Specular reflection occurs when light hits a smooth surface and bounces back in a uniform direction, while diffuse reflection occurs when light hits a rough surface and scatters in different directions."
+            "name": "Method Overloading vs Method Overriding",
+            "title": "Method Overloading vs Method Overriding in Java",
+            "explanation": "Method overloading and method overriding are two different concepts in object-oriented programming. Method overloading occurs when multiple methods with the same name are defined in the same class, while method overriding occurs when a subclass provides a different implementation of a method that is already defined in its superclass."
         },
         {
-            "name": "Reflection from Plane and Curved Surfaces",
-            "title": "Plane and Curved Mirror Reflection",
-            "explanation": "Reflection can occur from both plane and curved surfaces. Plane surfaces produce a virtual image, while curved surfaces can produce either a real or virtual image depending on the curvature and position of the object."
+            "name": "Example Use Cases",
+            "title": "Method Overloading Example in C++",
+            "explanation": "Method overloading can be used in a variety of situations, such as when creating a class that needs to perform different actions based on the input parameters. For example, a `calculateArea` method can be overloaded to accept different types of parameters, such as radius, length and width, or coordinates."
         },
         {
-            "name": "Applications of Reflection",
-            "title": "Mirror and Lens Applications",
-            "explanation": "Reflection has many practical applications, including mirrors, lenses, and telescopes. It is also used in everyday objects such as eyeglasses, microscopes, and periscopes."
+            "name": "Best Practices",
+            "title": "Best Practices for Method Overloading in Programming",
+            "explanation": "When using method overloading, it is essential to follow best practices, such as using meaningful method names, avoiding ambiguous method signatures, and documenting the methods properly. This ensures that the code is readable, maintainable, and easy to understand."
         }
     ],
-    "Types of Reflection: Specular and Diffuse": [
+    "Method Overriding": [
         {
-            "name": "Introduction to Reflection",
-            "title": "Reflection in Physics Diagram",
-            "explanation": "Reflection is the change in direction of a wavefront at a surface that causes it to bounce back. It occurs when a wave hits a barrier and returns to its original medium. Reflection can be seen in various forms, including light, sound, and water waves."
+            "name": "Introduction to Method Overriding",
+            "title": "Method Overriding in Java",
+            "explanation": "Method overriding is a feature in object-oriented programming where a subclass provides a different implementation of a method that is already defined in its superclass. The method in the subclass has the same name, return type, and parameter list as the method in the superclass, but it can have a different implementation."
         },
         {
-            "name": "Specular Reflection",
-            "title": "Mirror Image Specular Reflection",
-            "explanation": "Specular reflection occurs when light hits a smooth surface and bounces back without being scattered. This type of reflection produces a clear and sharp image, similar to what is seen in a mirror. Examples of specular reflection include the reflection of light on a calm lake or a polished metal surface."
+            "name": "Method Overriding Rules",
+            "title": "Method Overriding Rules in Programming",
+            "explanation": "There are certain rules that must be followed when overriding a method. The method in the subclass must have the same name, return type, and parameter list as the method in the superclass. The method in the subclass must also be public or protected, and it must not be static."
         },
         {
-            "name": "Diffuse Reflection",
-            "title": "Diffuse Reflection on Rough Surface",
-            "explanation": "Diffuse reflection occurs when light hits a rough surface and is scattered in different directions. This type of reflection does not produce a clear image, and the reflected light is spread out over a wide area. Examples of diffuse reflection include the reflection of light on a rough stone or a piece of paper."
+            "name": "Method Overriding Example",
+            "title": "Method Overriding in Java Example",
+            "explanation": "For example, consider a superclass called 'Animal' that has a method called 'sound()'. A subclass called 'Dog' can override the 'sound()' method to provide its own implementation, such as 'bark()'. When an object of the 'Dog' class is created and the 'sound()' method is called, the 'bark()' method will be executed instead of the 'sound()' method in the 'Animal' class."
         },
         {
-            "name": "Comparison of Specular and Diffuse Reflection",
-            "title": "Specular vs Diffuse Reflection Diagram",
-            "explanation": "The main difference between specular and diffuse reflection is the nature of the surface and the resulting reflection. Specular reflection occurs on smooth surfaces and produces a clear image, while diffuse reflection occurs on rough surfaces and produces a scattered reflection. Understanding the difference between these two types of reflection is important in various fields, including physics, engineering, and computer graphics."
+            "name": "Method Overriding vs Method Overloading",
+            "title": "Method Overriding vs Method Overloading in Java",
+            "explanation": "Method overriding is often confused with method overloading, but they are two different concepts. Method overloading is when multiple methods with the same name can be defined, but with different parameter lists. Method overriding is when a subclass provides a different implementation of a method that is already defined in its superclass."
         },
         {
-            "name": "Real-World Applications of Reflection",
-            "title": "Reflection in Real-World Scenarios",
-            "explanation": "Reflection has numerous real-world applications, including mirrors, lenses, and optical fibers. It is also used in various technologies, such as radar, lidar, and sonar. Additionally, reflection is used in medical imaging techniques, such as ultrasound and MRI, to produce images of internal organs and tissues."
+            "name": "Benefits of Method Overriding",
+            "title": "Benefits of Method Overriding in OOP",
+            "explanation": "Method overriding provides several benefits, including increased flexibility and customization. It allows subclasses to provide their own implementation of a method, which can be useful when the superclass method is not suitable for the subclass. It also promotes code reuse, as the subclass can inherit the common attributes and methods from the superclass and add its own specific implementation."
+        },
+        {
+            "name": "Common Use Cases of Method Overriding",
+            "title": "Real World Examples of Method Overriding",
+            "explanation": "Method overriding is commonly used in scenarios where a subclass needs to provide a specific implementation of a method that is already defined in its superclass. For example, in a banking system, a 'CheckingAccount' class can override the 'withdraw()' method of the 'Account' class to provide its own implementation of withdrawal rules."
         }
     ],
-    "Reflection from Plane and Curved Surfaces": [
-        {
-            "name": "Introduction to Reflection",
-            "title": "Reflection of Light",
-            "explanation": "Reflection is the change in direction of light at a surface that causes it to bounce back. This subtopic introduces the concept of reflection, its importance in everyday life, and the laws governing it."
-        },
-        {
-            "name": "Plane Mirror Reflection",
-            "title": "Plane Mirror Image Formation",
-            "explanation": "This subtopic explores how plane mirrors reflect light and form images. It covers the characteristics of images formed by plane mirrors, including virtual images, and the applications of plane mirrors in daily life."
-        },
-        {
-            "name": "Spherical Mirror Reflection",
-            "title": "Spherical Mirror Diagram",
-            "explanation": "Spherical mirrors, including concave and convex mirrors, are discussed in this subtopic. It explains how these mirrors focus light, form images, and their uses in various optical instruments and applications."
-        },
-        {
-            "name": "Curved Surface Reflection",
-            "title": "Curved Surface Mirror Reflection",
-            "explanation": "This subtopic delves into the reflection of light from curved surfaces other than spherical mirrors. It includes the reflection from elliptical, parabolic, and other curved surfaces, highlighting their unique properties and applications."
-        },
-        {
-            "name": "Total Internal Reflection",
-            "title": "Total Internal Reflection Diagram",
-            "explanation": "Total internal reflection occurs when light hits a surface at a certain angle and is completely reflected back. This subtopic explains the phenomenon, its conditions, and its applications in fiber optics and other fields."
-        },
-        {
-            "name": "Reflection and Refraction Together",
-            "title": "Reflection and Refraction of Light",
-            "explanation": "This subtopic discusses how reflection and refraction can occur together in certain situations, such as in the case of a light beam passing from one medium to another and then reflecting off a surface. It explores the principles and applications of these combined phenomena."
-        },
-        {
-            "name": "Applications of Reflection",
-            "title": "Applications of Reflection in Daily Life",
-            "explanation": "The various applications of reflection in everyday life and technology are covered in this subtopic. It includes mirrors, telescopes, microscopes, periscopes, and other optical instruments that rely on the principle of reflection."
-        }
-    ],
-    "Total Internal Reflection and its Applications": [
-        {
-            "name": "Introduction to Total Internal Reflection",
-            "title": "Total Internal Reflection Diagram",
-            "explanation": "Total internal reflection is the phenomenon where a wave or light beam hits a medium boundary and is completely reflected back into the first medium. This occurs when the angle of incidence is greater than the critical angle, which depends on the refractive indices of the two media."
-        },
-        {
-            "name": "Critical Angle and Refractive Indices",
-            "title": "Critical Angle Calculation Formula",
-            "explanation": "The critical angle is the angle of incidence above which total internal reflection occurs. It is calculated using the formula sin(\u03b8_c) = n2 / n1, where \u03b8_c is the critical angle, n1 is the refractive index of the incident medium, and n2 is the refractive index of the refracting medium."
-        },
-        {
-            "name": "Total Internal Reflection in Optical Fibers",
-            "title": "Optical Fiber Cross-Section Diagram",
-            "explanation": "Total internal reflection is the principle behind the functioning of optical fibers. The light signal travels through the core of the fiber, which has a higher refractive index than the cladding. The light is completely reflected back into the core at the core-cladding boundary, allowing the signal to propagate over long distances with minimal loss."
-        },
-        {
-            "name": "Applications in Prism-Based Optical Instruments",
-            "title": "Prism Telescope Diagram",
-            "explanation": "Total internal reflection is used in prism-based optical instruments such as binoculars, telescopes, and periscopes. The prisms are designed to use total internal reflection to change the direction of the light beam, allowing for a more compact and efficient design."
-        },
-        {
-            "name": "Total Internal Reflection in Diamond and Gemstones",
-            "title": "Diamond Brilliance Diagram",
-            "explanation": "Total internal reflection is responsible for the brilliance and fire of diamonds and other gemstones. The cut of the gemstone is designed to maximize the amount of total internal reflection, which gives the gemstone its characteristic sparkle and shine."
-        },
-        {
-            "name": "Medical Applications of Total Internal Reflection",
-            "title": "Endoscope Diagram",
-            "explanation": "Total internal reflection is used in medical imaging techniques such as endoscopy and laparoscopy. The optical fibers used in these techniques rely on total internal reflection to transmit images from inside the body to a camera or monitor."
-        }
-    ],
-    "Reflection in Nature: Mirages and Optical Illusions": [
-        {
-            "name": "Introduction to Mirages",
-            "title": "Desert Mirage Image",
-            "explanation": "Mirages are optical illusions that occur when light passes through layers of air with different temperatures, causing the light to bend and create the appearance of a distorted or inverted image of a distant object."
-        },
-        {
-            "name": "Types of Mirages",
-            "title": "inferior Mirage Desert Road",
-            "explanation": "There are several types of mirages, including inferior mirages, which appear below the horizon, and superior mirages, which appear above the horizon. Other types of mirages include double mirages and Fata Morgana."
-        },
-        {
-            "name": "Optical Illusions in Nature",
-            "title": "Moon Mirage Over Water",
-            "explanation": "Optical illusions in nature can occur due to various factors such as reflection, refraction, and diffraction of light. Examples include the appearance of a broken stick in water, the moon appearing larger near the horizon, and the illusion of a waterfall appearing to reverse direction."
-        },
-        {
-            "name": "Refraction and Total Internal Reflection",
-            "title": "Total Internal Reflection in Water",
-            "explanation": "Refraction occurs when light passes from one medium to another with a different optical density, causing the light to bend. Total internal reflection occurs when light hits a surface at a critical angle, causing the light to be completely reflected back into the original medium."
-        },
-        {
-            "name": "Mirages in Different Environments",
-            "title": "Arctic Mirage Over Ice",
-            "explanation": "Mirages can occur in various environments, including deserts, oceans, and polar regions. The type and frequency of mirages depend on the temperature and humidity conditions of the environment."
-        },
-        {
-            "name": "Cultural and Historical Significance of Mirages",
-            "title": "Mirage in Ancient Desert Legend",
-            "explanation": "Mirages have been a source of fascination and inspiration for humans throughout history, featuring in myths, legends, and artworks. They have also played a significant role in the development of scientific understanding of optics and the behavior of light."
-        }
-    ]
+    "Operator Overloading": {
+        "error": "Invalid JSON response from API",
+        "details": "Invalid \\escape: line 17 column 170 (char 1293)"
+    },
+    "Function Polymorphism": {
+        "error": "Invalid JSON response from API",
+        "details": "Invalid \\escape: line 22 column 106 (char 1579)"
+    },
+    "Type Polymorphism": {
+        "error": "Invalid JSON response from API",
+        "details": "Invalid \\escape: line 27 column 112 (char 1995)"
+    }
 }

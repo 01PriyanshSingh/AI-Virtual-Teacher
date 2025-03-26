@@ -1,11 +1,20 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-// Free TTS Integration
-const speakText = (text) => {
-  const speech = new SpeechSynthesisUtterance(text);
-  window.speechSynthesis.cancel(); // Stop previous speech
-  window.speechSynthesis.speak(speech);
+let speechInstance = null; // Global instance for speech control
+
+// Function to Speak Text
+const speakText = (text, callback) => {
+  if ("speechSynthesis" in window) {
+    speechInstance = new SpeechSynthesisUtterance(text);
+    speechInstance.onend = callback; // Move to the next subtopic after speaking
+    speechInstance.onerror = (e) => console.error("Speech error:", e);
+
+    window.speechSynthesis.cancel(); // Stop previous speech
+    window.speechSynthesis.speak(speechInstance);
+  } else {
+    alert("Text-to-Speech is not supported in this browser.");
+  }
 };
 
 export default function SyllabusPage() {
@@ -16,9 +25,12 @@ export default function SyllabusPage() {
   const [subtopics, setSubtopics] = useState({});
   const [currentSubtopicIndex, setCurrentSubtopicIndex] = useState(0);
   const [imageUrl, setImageUrl] = useState("");
-  const [openTopics, setOpenTopics] = useState({}); // Tracks open/closed topics
+  const [openTopics, setOpenTopics] = useState({});
+  const [isTeaching, setIsTeaching] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [highlightedTopic, setHighlightedTopic] = useState(null);
+  const [highlightedSubtopic, setHighlightedSubtopic] = useState(null);
 
-  // Fetch Subtopics from Flask Backend
   useEffect(() => {
     fetch("http://127.0.0.1:5000/get_subtopics")
       .then((response) => response.json())
@@ -30,12 +42,10 @@ export default function SyllabusPage() {
   const subtopicList = subtopics[currentTopic] || [];
   const currentSubtopic = subtopicList[currentSubtopicIndex] || null;
 
-  // Fetch Image when Subtopic Changes
   useEffect(() => {
     if (currentSubtopic) {
       const imagePath = `http://127.0.0.1:5000/get_image/${encodeURIComponent(currentSubtopic.title)}`;
       setImageUrl(imagePath);
-      speakText(`${currentSubtopic.name}. ${currentSubtopic.explanation}`);
     }
   }, [currentSubtopic]);
 
@@ -44,16 +54,47 @@ export default function SyllabusPage() {
     setOpenTopics((prev) => ({ ...prev, [index]: !prev[index] }));
   };
 
-  // Change Subtopic
-  const nextSubtopic = () => {
-    if (currentSubtopicIndex < subtopicList.length - 1) {
-      setCurrentSubtopicIndex(currentSubtopicIndex + 1);
+  // Start Teaching Mode
+  const startTeaching = () => {
+    if (!subtopicList.length) {
+      alert("No subtopics available for this topic.");
+      return;
+    }
+
+    setIsTeaching(true);
+    setIsPaused(false);
+    setHighlightedTopic(currentTopic);
+    speakNextSubtopic(currentSubtopicIndex);
+  };
+
+  // Speak Next Subtopic
+  const speakNextSubtopic = (index) => {
+    if (index < subtopicList.length) {
+      const subtopic = subtopicList[index];
+      setCurrentSubtopicIndex(index);
+      setHighlightedSubtopic(subtopic.name);
+
+      speakText(`${subtopic.name}. ${subtopic.explanation}`, () => speakNextSubtopic(index + 1));
+    } else {
+      setIsTeaching(false);
+      setHighlightedTopic(null);
+      setHighlightedSubtopic(null);
     }
   };
 
-  const prevSubtopic = () => {
-    if (currentSubtopicIndex > 0) {
-      setCurrentSubtopicIndex(currentSubtopicIndex - 1);
+  // Pause Speech
+  const pauseTeaching = () => {
+    if (window.speechSynthesis.speaking) {
+      window.speechSynthesis.pause();
+      setIsPaused(true);
+    }
+  };
+
+  // Resume Speech
+  const resumeTeaching = () => {
+    if (window.speechSynthesis.paused) {
+      window.speechSynthesis.resume();
+      setIsPaused(false);
     }
   };
 
@@ -63,10 +104,12 @@ export default function SyllabusPage() {
       <div className="w-3/4 p-8 bg-gray-100 flex flex-col justify-between">
         <div>
           <h1 className="text-3xl font-bold text-blue-600">{syllabus.subject || "No Subject"}</h1>
-          <h2 className="text-2xl font-semibold mt-4">{currentTopic}</h2>
+          <h2 className={`text-2xl font-semibold mt-4 ${highlightedTopic === currentTopic ? "text-red-600" : ""}`}>
+            {currentTopic}
+          </h2>
 
           {/* Subtopics Section */}
-          <h3 className="text-xl font-semibold mt-4 text-gray-700">
+          <h3 className={`text-xl font-semibold mt-4 ${highlightedSubtopic === currentSubtopic?.name ? "text-red-600" : "text-gray-700"}`}>
             {currentSubtopic?.name || "No Subtopics Available"}
           </h3>
           <p className="mt-2 text-gray-600">{currentSubtopic?.explanation || ""}</p>
@@ -77,21 +120,28 @@ export default function SyllabusPage() {
           )}
         </div>
 
-        {/* Navigation Buttons */}
+        {/* Navigation & Teaching Buttons */}
         <div className="flex justify-between space-x-4 mt-4">
           <button
-            onClick={prevSubtopic}
-            disabled={currentSubtopicIndex === 0}
-            className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md disabled:opacity-50"
+            onClick={startTeaching}
+            className="px-4 py-2 bg-purple-600 text-white rounded-md disabled:opacity-50"
+            disabled={isTeaching}
           >
-            Previous Subtopic
+            Start Teaching
           </button>
           <button
-            onClick={nextSubtopic}
-            disabled={currentSubtopicIndex === subtopicList.length - 1}
-            className="px-4 py-2 bg-green-600 text-white rounded-md disabled:opacity-50"
+            onClick={pauseTeaching}
+            className="px-4 py-2 bg-yellow-500 text-white rounded-md disabled:opacity-50"
+            disabled={!isTeaching || isPaused}
           >
-            Next Subtopic
+            Pause
+          </button>
+          <button
+            onClick={resumeTeaching}
+            className="px-4 py-2 bg-green-500 text-white rounded-md disabled:opacity-50"
+            disabled={!isPaused}
+          >
+            Resume
           </button>
         </div>
       </div>
@@ -109,11 +159,10 @@ export default function SyllabusPage() {
         <ul className="mt-2 space-y-1">
           {topics.map((topic, index) => (
             <li key={index} className="border-b">
-              {/* Topic Button */}
               <div
                 className={`p-2 flex justify-between items-center cursor-pointer ${
                   index === currentIndex ? "bg-blue-200 font-bold" : "hover:bg-gray-200"
-                }`}
+                } ${highlightedTopic === topic ? "bg-red-300" : ""}`}
                 onClick={() => {
                   setCurrentIndex(index);
                   setCurrentSubtopicIndex(0);
@@ -124,7 +173,6 @@ export default function SyllabusPage() {
                 <span className="text-gray-500">{openTopics[index] ? "▲" : "▼"}</span>
               </div>
 
-              {/* Subtopics (Shown Only If Expanded) */}
               {openTopics[index] && (
                 <ul className="ml-4 mt-2 space-y-1">
                   {(subtopics[topic] || []).map((subtopic, subIndex) => (
@@ -132,7 +180,7 @@ export default function SyllabusPage() {
                       key={subIndex}
                       className={`p-2 rounded-md cursor-pointer ${
                         subIndex === currentSubtopicIndex ? "bg-green-200 font-bold" : "hover:bg-gray-200"
-                      }`}
+                      } ${highlightedSubtopic === subtopic.name ? "bg-red-300" : ""}`}
                       onClick={() => setCurrentSubtopicIndex(subIndex)}
                     >
                       {subtopic.name}
