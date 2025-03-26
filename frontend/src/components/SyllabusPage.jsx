@@ -1,45 +1,59 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
+
+// Free TTS Integration
+const speakText = (text) => {
+  const speech = new SpeechSynthesisUtterance(text);
+  window.speechSynthesis.cancel(); // Stop previous speech
+  window.speechSynthesis.speak(speech);
+};
 
 export default function SyllabusPage() {
   const location = useLocation();
   const syllabus = location.state?.syllabus || {};
   const topics = syllabus.topics || [];
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [subtopics, setSubtopics] = useState({}); // Store subtopics
+  const [subtopics, setSubtopics] = useState({});
+  const [currentSubtopicIndex, setCurrentSubtopicIndex] = useState(0);
+  const [imageUrl, setImageUrl] = useState("");
+  const [openTopics, setOpenTopics] = useState({}); // Tracks open/closed topics
 
+  // Fetch Subtopics from Flask Backend
   useEffect(() => {
-    if (topics.length > 0) {
-      fetchSubtopics(topics[currentIndex]);
+    fetch("http://127.0.0.1:5000/get_subtopics")
+      .then((response) => response.json())
+      .then((data) => setSubtopics(data))
+      .catch((error) => console.error("Error fetching subtopics:", error));
+  }, []);
+
+  const currentTopic = topics[currentIndex] || "No Topics Available";
+  const subtopicList = subtopics[currentTopic] || [];
+  const currentSubtopic = subtopicList[currentSubtopicIndex] || null;
+
+  // Fetch Image when Subtopic Changes
+  useEffect(() => {
+    if (currentSubtopic) {
+      const imagePath = `http://127.0.0.1:5000/get_image/${encodeURIComponent(currentSubtopic.title)}`;
+      setImageUrl(imagePath);
+      speakText(`${currentSubtopic.name}. ${currentSubtopic.explanation}`);
     }
-  }, [currentIndex]);
+  }, [currentSubtopic]);
 
-  const fetchSubtopics = async (topic) => {
-    if (subtopics[topic]) return; // Prevent duplicate fetches
+  // Toggle Key Topic Expansion
+  const toggleTopic = (index) => {
+    setOpenTopics((prev) => ({ ...prev, [index]: !prev[index] }));
+  };
 
-    try {
-      const response = await axios.post("http://127.0.0.1:5000/generate_subtopics", { topic });
-
-      console.log("📌 API Response:", response.data); // ✅ Debugging output
-
-      const fetchedSubtopics = Array.isArray(response.data.subtopics) ? response.data.subtopics : [];
-      
-      setSubtopics((prev) => ({ ...prev, [topic]: fetchedSubtopics }));
-    } catch (error) {
-      console.error("❌ Error fetching subtopics:", error);
+  // Change Subtopic
+  const nextSubtopic = () => {
+    if (currentSubtopicIndex < subtopicList.length - 1) {
+      setCurrentSubtopicIndex(currentSubtopicIndex + 1);
     }
   };
 
-  const nextTopic = () => {
-    if (currentIndex < topics.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
-  const prevTopic = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+  const prevSubtopic = () => {
+    if (currentSubtopicIndex > 0) {
+      setCurrentSubtopicIndex(currentSubtopicIndex - 1);
     }
   };
 
@@ -49,55 +63,83 @@ export default function SyllabusPage() {
       <div className="w-3/4 p-8 bg-gray-100 flex flex-col justify-between">
         <div>
           <h1 className="text-3xl font-bold text-blue-600">{syllabus.subject || "No Subject"}</h1>
-          <h2 className="text-2xl font-semibold mt-4">{topics[currentIndex] || "No Topics Available"}</h2>
+          <h2 className="text-2xl font-semibold mt-4">{currentTopic}</h2>
 
-          {/* ✅ Ensure subtopics is an array before mapping */}
-          <ul className="mt-4 space-y-1 text-gray-700">
-            {(subtopics[topics[currentIndex]] || []).map((sub, index) => (
-              <li key={index} className="ml-4 list-disc">{sub}</li>
-            ))}
-          </ul>
+          {/* Subtopics Section */}
+          <h3 className="text-xl font-semibold mt-4 text-gray-700">
+            {currentSubtopic?.name || "No Subtopics Available"}
+          </h3>
+          <p className="mt-2 text-gray-600">{currentSubtopic?.explanation || ""}</p>
+
+          {/* Display Image */}
+          {imageUrl && (
+            <img src={imageUrl} alt="Subtopic Illustration" className="mt-4 w-64 h-40 object-contain rounded-lg shadow-md" />
+          )}
         </div>
 
         {/* Navigation Buttons */}
-        <div className="flex justify-center space-x-4 mb-4">
+        <div className="flex justify-between space-x-4 mt-4">
           <button
-            onClick={prevTopic}
-            disabled={currentIndex === 0}
+            onClick={prevSubtopic}
+            disabled={currentSubtopicIndex === 0}
             className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md disabled:opacity-50"
           >
-            Previous
+            Previous Subtopic
           </button>
           <button
-            onClick={nextTopic}
-            disabled={currentIndex === topics.length - 1}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md disabled:opacity-50"
+            onClick={nextSubtopic}
+            disabled={currentSubtopicIndex === subtopicList.length - 1}
+            className="px-4 py-2 bg-green-600 text-white rounded-md disabled:opacity-50"
           >
-            Next
+            Next Subtopic
           </button>
         </div>
       </div>
 
       {/* ✅ Right Sidebar (Overview & Topics List) */}
       <div className="w-1/4 bg-white p-4 shadow-lg flex flex-col">
-        {/* Overview */}
+        {/* Syllabus Preview */}
         <div className="p-3 border rounded-md mb-4">
           <h1 className="text-lg font-bold text-blue-600">{syllabus.subject}</h1>
           <p className="text-gray-700">{syllabus.summary || "No summary provided."}</p>
         </div>
 
-        {/* Key Topics List */}
+        {/* Key Topics List with Expandable Subtopics */}
         <h2 className="text-lg font-semibold text-blue-500">Key Topics</h2>
         <ul className="mt-2 space-y-1">
           {topics.map((topic, index) => (
-            <li
-              key={index}
-              className={`p-2 rounded-md cursor-pointer ${
-                index === currentIndex ? "bg-blue-200 font-bold" : "hover:bg-gray-200"
-              }`}
-              onClick={() => setCurrentIndex(index)}
-            >
-              {topic}
+            <li key={index} className="border-b">
+              {/* Topic Button */}
+              <div
+                className={`p-2 flex justify-between items-center cursor-pointer ${
+                  index === currentIndex ? "bg-blue-200 font-bold" : "hover:bg-gray-200"
+                }`}
+                onClick={() => {
+                  setCurrentIndex(index);
+                  setCurrentSubtopicIndex(0);
+                  toggleTopic(index);
+                }}
+              >
+                {topic}
+                <span className="text-gray-500">{openTopics[index] ? "▲" : "▼"}</span>
+              </div>
+
+              {/* Subtopics (Shown Only If Expanded) */}
+              {openTopics[index] && (
+                <ul className="ml-4 mt-2 space-y-1">
+                  {(subtopics[topic] || []).map((subtopic, subIndex) => (
+                    <li
+                      key={subIndex}
+                      className={`p-2 rounded-md cursor-pointer ${
+                        subIndex === currentSubtopicIndex ? "bg-green-200 font-bold" : "hover:bg-gray-200"
+                      }`}
+                      onClick={() => setCurrentSubtopicIndex(subIndex)}
+                    >
+                      {subtopic.name}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>
