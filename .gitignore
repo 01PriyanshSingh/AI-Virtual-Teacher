@@ -3,3 +3,8 @@ id_rsa_01priyanshsingh.pub
 flask-backend\downloaded_images
 flask-backend\subtopics.json
 flask-backend\__pycache__
+flask-backend/downloaded_images
+flask-backend/subtopics.json
+flask-backend/venv
+flask-backend/__pycache__
+.gitignore
