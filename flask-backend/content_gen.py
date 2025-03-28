@@ -18,37 +18,37 @@ def generate_subtopics(key_topic):
     }
 
     prompt = f"""
-    For the key topic "{key_topic}", generate a list of subtopics with explanations. 
-    Each subtopic should include a title for fetching an image.
+    For the key topic "{key_topic}", generate a list of subtopics, each containing subsubtopics.
+    Each subsubtopic should have a title for fetching an image and an explanation.
 
     Return the response in structured JSON format:
     {{
-    "key_topic": "{key_topic}",
-    "subtopics": [
-        {{
-        "name": "<Subtopic 1>",
-        "title": "<Title for Image Search>",
-        "explanation": "<Explanation for Subtopic 1>"
-        }},
-        {{
-        "name": "<Subtopic 2>",
-        "title": "<Title for Image Search>",
-        "explanation": "<Explanation for Subtopic 2>"
-        }},
-        ...
-    ]
+        "{key_topic}": [
+            {{
+                "name": "<Subtopic 1>",
+                "subsubtopics": [
+                    {{
+                        "name": "<Subsubtopic 1>",
+                        "title": "<Title for Image Search>",
+                        "explanation": "<Explanation for Subsubtopic 1>"
+                    }},
+                    {{
+                        "name": "<Subsubtopic 2>",
+                        "title": "<Title for Image Search>",
+                        "explanation": "<Explanation for Subsubtopic 2>"
+                    }}
+                ]
+            }}
+        ]
     }}
     """
 
-
     data = {"model": MODEL, "messages": [{"role": "user", "content": prompt}]}
-
     response = requests.post(url, json=data, headers=headers)
     
     if response.status_code == 200:
         raw_content = response.json().get("choices", [{}])[0].get("message", {}).get("content", "{}")
         try:
-            # Parse the response as JSON
             subtopics = json.loads(raw_content.strip("```json\n").strip("```"))
             return subtopics
         except json.JSONDecodeError as e:
@@ -57,35 +57,31 @@ def generate_subtopics(key_topic):
         return {"error": f"Error {response.status_code}: {response.text}"}
 
 def process_key_topics(key_topics, output_file="subtopics.json"):
-    # Check if the JSON file exists; if not, create an empty one
     if not os.path.exists(output_file):
         with open(output_file, "w") as file:
             json.dump({}, file)
 
-    # Load existing data from the JSON file
     with open(output_file, "r") as file:
         all_subtopics = json.load(file)
         print("done")
 
     for topic in key_topics:
-        if topic not in all_subtopics:  # Avoid reprocessing existing topics
+        if topic not in all_subtopics:
             print(f"Processing key topic: {topic}")
             result = generate_subtopics(topic)
-            all_subtopics[topic] = result.get("subtopics", []) if "subtopics" in result else result
+            all_subtopics[topic] = result.get(topic, []) if topic in result else result
 
-    # Save the updated results to the JSON file
     with open(output_file, "w") as file:
         json.dump(all_subtopics, file, indent=4)
     print(f"Subtopics saved to {output_file}")
 
-    # Collect all titles for image fetching
     titles = []
     for subtopic_list in all_subtopics.values():
         for subtopic in subtopic_list:
-            if "title" in subtopic:
-                titles.append(subtopic["title"])
+            for subsubtopic in subtopic.get("subsubtopics", []):
+                if "title" in subsubtopic:
+                    titles.append(subsubtopic["title"])
 
-    # Call download_images for each title one by one
     for title in titles:
         print(f"Fetching image for title: {title}")
-        download_images(title, 1)  # Pass the title as a string
+        download_images(title, 1)

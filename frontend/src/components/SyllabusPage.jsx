@@ -24,12 +24,14 @@ export default function SyllabusPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [subtopics, setSubtopics] = useState({});
   const [currentSubtopicIndex, setCurrentSubtopicIndex] = useState(0);
+  const [currentSubsubtopicIndex, setCurrentSubsubtopicIndex] = useState(0); // New state for subsubtopics
   const [imageUrl, setImageUrl] = useState("");
   const [openTopics, setOpenTopics] = useState({});
   const [isTeaching, setIsTeaching] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [highlightedTopic, setHighlightedTopic] = useState(null);
   const [highlightedSubtopic, setHighlightedSubtopic] = useState(null);
+  const [highlightedSubsubtopic, setHighlightedSubsubtopic] = useState(null); // New state for highlighted subsubtopic
 
   useEffect(() => {
     fetch("http://127.0.0.1:5000/get_subtopics")
@@ -41,13 +43,16 @@ export default function SyllabusPage() {
   const currentTopic = topics[currentIndex] || "No Topics Available";
   const subtopicList = subtopics[currentTopic] || [];
   const currentSubtopic = subtopicList[currentSubtopicIndex] || null;
+  const subsubtopicList = currentSubtopic?.subsubtopics || []; // Get subsubtopics for the current subtopic
+  const currentSubsubtopic = subsubtopicList[currentSubsubtopicIndex] || null;
 
   useEffect(() => {
-    if (currentSubtopic) {
-      const imagePath = `http://127.0.0.1:5000/get_image/${encodeURIComponent(currentSubtopic.title)}`;
+    if (currentSubsubtopic) {
+      const imagePath = `http://127.0.0.1:5000/get_image/${encodeURIComponent(currentSubsubtopic.title)}`;
       setImageUrl(imagePath);
+      console.log("Current Subsubtopic Title:", currentSubsubtopic.title); // Log the title
     }
-  }, [currentSubtopic]);
+  }, [currentSubsubtopic]);
 
   // Toggle Key Topic Expansion
   const toggleTopic = (index) => {
@@ -64,21 +69,23 @@ export default function SyllabusPage() {
     setIsTeaching(true);
     setIsPaused(false);
     setHighlightedTopic(currentTopic);
-    speakNextSubtopic(currentSubtopicIndex);
+    speakNextSubsubtopic(currentSubsubtopicIndex); // Start teaching subsubtopics
   };
 
-  // Speak Next Subtopic
-  const speakNextSubtopic = (index) => {
-    if (index < subtopicList.length) {
-      const subtopic = subtopicList[index];
-      setCurrentSubtopicIndex(index);
-      setHighlightedSubtopic(subtopic.name);
+  // Speak Next Subsubtopic
+  const speakNextSubsubtopic = (index) => {
+    if (index < subsubtopicList.length) {
+      const subsubtopic = subsubtopicList[index];
+      const subtopic = subtopicList[index]
+      setCurrentSubsubtopicIndex(index);
+      setHighlightedSubsubtopic(subtopic.name);
 
-      speakText(`${subtopic.name}. ${subtopic.explanation}`, () => speakNextSubtopic(index + 1));
+      speakText(`${subtopic.name}. ${subsubtopic.explanation}`, () => speakNextSubsubtopic(index + 1));
     } else {
       setIsTeaching(false);
       setHighlightedTopic(null);
       setHighlightedSubtopic(null);
+      setHighlightedSubsubtopic(null);
     }
   };
 
@@ -112,11 +119,19 @@ export default function SyllabusPage() {
           <h3 className={`text-xl font-semibold mt-4 ${highlightedSubtopic === currentSubtopic?.name ? "text-red-600" : "text-gray-700"}`}>
             {currentSubtopic?.name || "No Subtopics Available"}
           </h3>
-          <p className="mt-2 text-gray-600">{currentSubtopic?.explanation || ""}</p>
+
+          {/* <h4 className={`text-lg font-semibold mt-4 ${highlightedSubsubtopic === currentSubsubtopic?.name ? "text-red-600" : "text-gray-700"}`}>
+            {currentSubsubtopic?.name || "No Subsubtopics Available"}
+          </h4> */}
+          <p className="mt-2 text-gray-600">{currentSubsubtopic?.explanation || ""}</p>
 
           {/* Display Image */}
           {imageUrl && (
-            <img src={imageUrl} alt="Subtopic Illustration" className="mt-4 w-64 h-40 object-contain rounded-lg shadow-md" />
+            <img
+              src={imageUrl}
+              alt="Subsubtopic Illustration"
+              className="mt-4 w-100 h-96 object-contain rounded-lg shadow-md" // Increased size
+            />
           )}
         </div>
 
