@@ -111,7 +111,7 @@ def get_image(title):
         return jsonify({"error": f"Folder '{title}' not found"}), 404
 
     # Look for image files dynamically
-    for ext in ["jpg", "jpeg", "png", "gif"]:
+    for ext in ["jpg", "jpeg", "png", "gif" ,"webp"]:
         image_path = os.path.join(folder_path, f"Image_1.{ext}")
         if os.path.exists(image_path):
             return send_from_directory(folder_path, f"Image_1.{ext}")
