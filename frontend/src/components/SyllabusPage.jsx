@@ -1,21 +1,11 @@
 import { useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react"; // Combined import
 
-let speechInstance = null; // Global instance for speech control
+// Create an audio ref for TTS playback
 
-// Function to Speak Text
-const speakText = (text, callback) => {
-  if ("speechSynthesis" in window) {
-    speechInstance = new SpeechSynthesisUtterance(text);
-    speechInstance.onend = callback; // Move to the next subtopic after speaking
-    speechInstance.onerror = (e) => console.error("Speech error:", e);
+// New speakText function using the audio element
 
-    window.speechSynthesis.cancel(); // Stop previous speech
-    window.speechSynthesis.speak(speechInstance);
-  } else {
-    alert("Text-to-Speech is not supported in this browser.");
-  }
-};
+
 
 export default function SyllabusPage() {
   const location = useLocation();
@@ -32,6 +22,15 @@ export default function SyllabusPage() {
   const [highlightedTopic, setHighlightedTopic] = useState(null);
   const [highlightedSubtopic, setHighlightedSubtopic] = useState(null);
   const [highlightedSubsubtopic, setHighlightedSubsubtopic] = useState(null); // New state for highlighted subsubtopic
+  const audioRef = useRef(null);
+
+
+// Helper: Generate a TTS URL using the Google Translate TTS endpoint.
+const getTTSUrl = (text, language = "en") => {
+  return `http://localhost:5000/tts?language=${language}&text=${encodeURIComponent(text)}`;
+};
+
+
 
   useEffect(() => {
     fetch("http://127.0.0.1:5000/get_subtopics")
@@ -59,6 +58,39 @@ export default function SyllabusPage() {
     setOpenTopics((prev) => ({ ...prev, [index]: !prev[index] }));
   };
 
+  const speakText = (text, callback) => {
+    if (audioRef.current) {
+      const ttsUrl = getTTSUrl(text);
+      fetch(ttsUrl)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.blob();
+        })
+        .then((blob) => {
+          const audioURL = URL.createObjectURL(blob);
+          audioRef.current.src = audioURL;
+          audioRef.current.onended = () => {
+            URL.revokeObjectURL(audioURL);
+            callback();
+          };
+          audioRef.current.onerror = (e) => {
+            console.error("Audio playback error:", e);
+            URL.revokeObjectURL(audioURL);
+            callback();
+          };
+          audioRef.current.play();
+        })
+        .catch((error) => {
+          console.error("Error fetching TTS audio:", error);
+          callback();
+        });
+    }
+  };
+  
+  
+  
   // Start Teaching Mode
   const startTeaching = () => {
     if (!subtopicList.length) {
@@ -69,19 +101,56 @@ export default function SyllabusPage() {
     setIsTeaching(true);
     setIsPaused(false);
     setHighlightedTopic(currentTopic);
-    speakNextSubsubtopic(currentSubsubtopicIndex); // Start teaching subsubtopics
+    speakNextSubsubtopic(0,0); // Start teaching subsubtopics
   };
 
   // Speak Next Subsubtopic
-  const speakNextSubsubtopic = (index) => {
-    if (index < subsubtopicList.length) {
-      const subsubtopic = subsubtopicList[index];
-      const subtopic = subtopicList[index]
-      setCurrentSubsubtopicIndex(index);
-      setHighlightedSubsubtopic(subtopic.name);
-
-      speakText(`${subtopic.name}. ${subsubtopic.explanation}`, () => speakNextSubsubtopic(index + 1));
+  const speakNextSubsubtopic = (subtopicIndex, subsubtopicIndex) => {
+    if (subtopicIndex < subtopicList.length) {
+      const subtopic = subtopicList[subtopicIndex];
+  
+      if (subsubtopicIndex === 0) {
+        // Different ways to introduce a subtopic
+        const introSentences = [
+          `Let's dive into ${subtopic.name}.`,
+          `Up next, we have ${subtopic.name}.`,
+          `Now, we'll explore ${subtopic.name}.`,
+          `Time to learn about ${subtopic.name}.`,
+          `Let's understand ${subtopic.name} in detail.`
+        ];
+  
+        const randomIntro = introSentences[Math.floor(Math.random() * introSentences.length)];
+  
+        console.log(`Starting Subtopic: ${subtopic.name} (${subtopicIndex + 1}/${subtopicList.length})`);
+        speakText(randomIntro, () => speakNextSubsubtopic(subtopicIndex, subsubtopicIndex + 1));
+        return; // Prevents immediately proceeding to the first subsubtopic
+      }
+  
+      if (subsubtopicIndex <= subtopic.subsubtopics.length) {
+        const subsubtopic = subtopic.subsubtopics[subsubtopicIndex - 1];
+  
+        // Update states
+        setCurrentSubtopicIndex(subtopicIndex);
+        setCurrentSubsubtopicIndex(subsubtopicIndex - 1);
+        setHighlightedSubsubtopic(subsubtopic.name);
+  
+        // Log current progress
+        console.log(`Current Subtopic: ${subtopic.name} (${subtopicIndex + 1}/${subtopicList.length})`);
+        console.log(`Current Subsubtopic: ${subsubtopic.name} (${subsubtopicIndex}/${subtopic.subsubtopics.length})`);
+  
+        // Speak and proceed
+        speakText(
+          `${subsubtopic.name}. ${subsubtopic.explanation}`,
+          () => speakNextSubsubtopic(subtopicIndex, subsubtopicIndex + 1) // Move to next subsubtopic
+        );
+      } else {
+        // Move to the next subtopic after finishing all its subsubtopics
+        console.log(`Finished Subtopic: ${subtopic.name}`);
+        speakNextSubsubtopic(subtopicIndex + 1, 0);
+      }
     } else {
+      // If all topics and subtopics are finished, reset teaching state
+      console.log("All subtopics and subsubtopics completed.");
       setIsTeaching(false);
       setHighlightedTopic(null);
       setHighlightedSubtopic(null);
@@ -162,7 +231,7 @@ export default function SyllabusPage() {
       </div>
 
       {/* ✅ Right Sidebar (Overview & Topics List) */}
-      <div className="w-1/4 bg-white p-4 shadow-lg flex flex-col">
+      <div className="w-1/4 bg-white p-4 shadow-lg flex flex-col overflow-y-auto max-h-screen">
         {/* Syllabus Preview */}
         <div className="p-3 border rounded-md mb-4">
           <h1 className="text-lg font-bold text-blue-600">{syllabus.subject}</h1>
@@ -207,6 +276,9 @@ export default function SyllabusPage() {
           ))}
         </ul>
       </div>
+      {/* Hidden audio element for TTS playback */}
+      <audio ref={audioRef} style={{ display: "none" }} />
+
     </div>
   );
 }

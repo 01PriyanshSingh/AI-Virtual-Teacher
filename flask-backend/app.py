@@ -7,12 +7,91 @@ import json
 from content_gen import generate_subtopics, process_key_topics  # Import the function
 import shutil
 
+from flask import Flask, request, send_file, abort
+import requests
+from io import BytesIO
+from pydub import AudioSegment
+import re
+
+
 load_dotenv()
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for frontend connection
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 MODEL = "llama-3.3-70b-versatile"
+
+
+
+def split_text_into_chunks(text, max_chars=200):
+    """
+    Split text into chunks not exceeding max_chars.
+    This simple approach splits on punctuation followed by whitespace.
+    """
+    sentences = re.split(r'(?<=[.!?])\s+', text)
+    chunks = []
+    current_chunk = ""
+    for sentence in sentences:
+        if len(current_chunk) + len(sentence) > max_chars:
+            if current_chunk:
+                chunks.append(current_chunk.strip())
+            current_chunk = sentence
+        else:
+            current_chunk += " " + sentence
+    if current_chunk:
+        chunks.append(current_chunk.strip())
+    return chunks
+
+@app.route('/tts')
+def tts():
+    text = request.args.get('text')
+    language = request.args.get('language', 'en')
+    if not text:
+        abort(400, 'Text parameter is required')
+    
+    # Google Translate TTS endpoint details
+    base_url = 'https://translate.google.com/translate_tts'
+    params = {
+        'ie': 'UTF-8',
+        'client': 'tw-ob',
+        'tl': language,
+    }
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+                      '(KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36',
+        'Referer': 'https://translate.google.com/'
+    }
+    
+    # Split text into chunks if it exceeds the maximum allowed characters.
+    max_chars = 200  # Adjust this limit as needed
+    if len(text) > max_chars:
+        chunks = split_text_into_chunks(text, max_chars)
+    else:
+        chunks = [text]
+    
+    audio_segments = []
+    
+    # For each chunk, fetch the TTS audio from Google
+    for chunk in chunks:
+        params['q'] = chunk
+        response = requests.get(base_url, params=params, headers=headers)
+        if response.status_code != 200:
+            abort(response.status_code, description="Error fetching TTS audio")
+        # Load the fetched audio as an AudioSegment (assuming MP3 format)
+        segment = AudioSegment.from_file(BytesIO(response.content), format="mp3")
+        audio_segments.append(segment)
+    
+    # Concatenate all audio segments into one
+    combined_audio = audio_segments[0]
+    for seg in audio_segments[1:]:
+        combined_audio += seg  # This appends the next segment
+    
+    # Export the combined audio to a BytesIO object
+    output = BytesIO()
+    combined_audio.export(output, format="mp3")
+    output.seek(0)
+    
+    return send_file(output, mimetype="audio/mpeg", as_attachment=False, download_name="tts.mp3")
 
 def generate_syllabus(subject):
     file_path = "subtopics.json"
