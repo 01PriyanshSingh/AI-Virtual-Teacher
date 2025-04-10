@@ -21,6 +21,10 @@ CORS(app)  # Enable CORS for frontend connection
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 MODEL = "llama-3.3-70b-versatile"
 
+from uuid import uuid4
+
+chat_sessions = {} 
+
 
 
 def split_text_into_chunks(text, max_chars=200):
@@ -196,6 +200,122 @@ def get_image(title):
             return send_from_directory(folder_path, f"Image_1.{ext}")
 
     return jsonify({"error": "Image not found"}), 404
+
+
+
+
+
+ # fallback to new ID
+
+@app.route('/submit_doubt', methods=['POST'])
+def submit_doubt():
+    data = request.get_json()
+    topic = data.get("topic")
+    subtopic_name = data.get("subtopic")
+    user_doubt = data.get("doubt")
+    session_id = data.get("session_id") or str(uuid4()) 
+    print(f"\n📦 Using session: {session_id}")
+    if session_id not in chat_sessions:
+        chat_sessions[session_id] = []
+
+    print(f"\n🔍 Received doubt:\nTopic: {topic}\nSubtopic: {subtopic_name}\nDoubt: {user_doubt}\n")
+
+    # Step 1: Load subtopics.json
+    try:
+        with open(SUBTOPICS_FILE, "r") as f:
+            all_subtopics = json.load(f)
+    except Exception as e:
+        return jsonify({"error": "Failed to load subtopics", "details": str(e)}), 500
+
+    # Step 2: Find the subtopic object from the topic
+    subtopic_list = all_subtopics.get(topic, [])
+    selected_subtopic = next((s for s in subtopic_list if s["name"] == subtopic_name), None)
+
+    if not selected_subtopic:
+        return jsonify({"error": "Subtopic not found"}), 404
+
+    # Step 3: Extract and compile all explanations under the selected subtopic
+    explanations = []
+    for subsub in selected_subtopic.get("subsubtopics", []):
+        name = subsub.get("name", "")
+        explanation = subsub.get("explanation", "")
+        explanations.append(f"**{name}**: {explanation}")
+
+    combined_explanation = "\n\n".join(explanations)
+
+    print(f"\n📚 Full Explanation for [{subtopic_name}] under [{topic}]:\n{combined_explanation}\n")
+
+    # Step 4: Add system prompt and user question
+    combined_explanation = "\n\n".join([
+        f"**{sub.get('name')}**: {sub.get('explanation')}"
+        for sub in selected_subtopic.get("subsubtopics", [])
+    ])
+
+    system_prompt = {
+        "role": "system",
+        "content": f"You are a helpful tutor for the topic: {topic} / {subtopic_name}.\n\nHere is the context:\n{combined_explanation}"
+    }
+
+    # Add current question to chat history
+    chat_sessions[session_id].append({
+        "role": "user",
+        "content": user_doubt
+    })
+
+    # Compile messages for the API call
+    messages = [system_prompt] + chat_sessions[session_id]
+
+    # Send to LLM
+    payload = {
+        "model": MODEL,
+        "messages": messages
+    }
+
+    print(f"\n🧠 Sending to LLM with {len(messages)} messages.")
+
+
+    # Step 5: Call Groq API
+    try:
+        url = "https://api.groq.com/openai/v1/chat/completions"
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {GROQ_API_KEY}"
+        }
+        payload = {
+            "model": MODEL,
+            "messages": [{"role": "user", "content": prompt}]
+        }
+
+        response = requests.post(url, headers=headers, json=payload)
+
+        if response.status_code != 200:
+            print("❌ Groq API Error:", response.text)
+            return jsonify({"error": "Groq API failed", "details": response.text}), 500
+
+        llm_reply = response.json()["choices"][0]["message"]["content"]
+        llm_reply = response.json()["choices"][0]["message"]["content"]
+
+        # Save assistant's reply
+        chat_sessions[session_id].append({
+            "role": "assistant",
+            "content": llm_reply
+        })
+
+        return jsonify({
+            "response": llm_reply,
+            "session_id": session_id  # return for frontend to reuse
+        })
+
+      
+    
+
+    except Exception as e:
+        print("⚠️ LLM Error:", str(e))
+        return jsonify({"error": "Failed to generate answer from LLM", "details": str(e)}), 500
+    
+
+
+
 
 
 if __name__ == "__main__":

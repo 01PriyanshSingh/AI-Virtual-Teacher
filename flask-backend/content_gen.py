@@ -10,7 +10,7 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 MODEL = "llama-3.3-70b-versatile"
 
 def generate_subtopics(key_topic):
-    print("Got topic")
+
     url = "https://api.groq.com/openai/v1/chat/completions"
     headers = {
         "Content-Type": "application/json",
@@ -63,25 +63,32 @@ def process_key_topics(key_topics, output_file="subtopics.json"):
 
     with open(output_file, "r") as file:
         all_subtopics = json.load(file)
-        print("done")
+       
 
     for topic in key_topics:
         if topic not in all_subtopics:
-            print(f"Processing key topic: {topic}")
+        
             result = generate_subtopics(topic)
             all_subtopics[topic] = result.get(topic, []) if topic in result else result
 
     with open(output_file, "w") as file:
         json.dump(all_subtopics, file, indent=4)
-    print(f"Subtopics saved to {output_file}")
+
 
     titles = []
+    
     for subtopic_list in all_subtopics.values():
+    
         for subtopic in subtopic_list:
+        
             for subsubtopic in subtopic.get("subsubtopics", []):
+            
                 if "title" in subsubtopic:
+                    
                     titles.append(subsubtopic["title"])
-
+                  
+    print("helloooo")
+    print(titles)
     for title in titles:
-        print(f"Fetching image for title: {title}")
+        
         download_images(title, 1)

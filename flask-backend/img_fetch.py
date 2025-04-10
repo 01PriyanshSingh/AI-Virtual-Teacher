@@ -15,9 +15,9 @@ def download_images(query, limit=1, output_dir='downloaded_images'):
             os.makedirs(output_dir)
         
         # Download images
-        print(f"Downloading images for query: {query}")
+      
         downloader.download(query, limit=limit, output_dir=output_dir, adult_filter_off=True, force_replace=False, timeout=60)
-        print(f"Images downloaded to: {os.path.abspath(output_dir)}")
+       
     except Exception as e:
         print(f"An error occurred: {e}")
 
