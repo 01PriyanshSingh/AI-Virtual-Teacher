@@ -259,17 +259,28 @@ const getTTSUrl = (text, language = "en") => {
 
               {openTopics[index] && (
                 <ul className="ml-4 mt-2 space-y-1">
-                  {(subtopics[topic] || []).map((subtopic, subIndex) => (
-                    <li
-                      key={subIndex}
-                      className={`p-2 rounded-md cursor-pointer ${
-                        subIndex === currentSubtopicIndex ? "bg-green-200 font-bold" : "hover:bg-gray-200"
-                      } ${highlightedSubtopic === subtopic.name ? "bg-red-300" : ""}`}
-                      onClick={() => setCurrentSubtopicIndex(subIndex)}
-                    >
-                      {subtopic.name}
-                    </li>
-                  ))}
+                  {
+                    (subtopics[topic] || []).map((subtopic, subIndex) => {
+                      const isCurrentTopic = index === currentIndex;
+                      const isSelected = isCurrentTopic && subIndex === currentSubtopicIndex;
+                    
+                      return (
+                        <li
+                          key={subIndex}
+                          className={`p-2 rounded-md cursor-pointer ${
+                            isSelected ? "bg-green-200 font-bold" : "hover:bg-gray-200"
+                          }`}
+                          onClick={() => {
+                            setCurrentIndex(index); // ensure topic is selected
+                            setCurrentSubtopicIndex(subIndex); // set subtopic
+                          }}
+                        >
+                          {subtopic.name}
+                        </li>
+                      );
+                    })
+                  
+                  }
                 </ul>
               )}
             </li>
