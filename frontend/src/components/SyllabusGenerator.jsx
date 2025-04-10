@@ -1,20 +1,25 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Loader from "./Loader"; // Import the Loader component
 
 export default function SyllabusGenerator() {
   const [subject, setSubject] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // State to track loading
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!subject) return;
 
+    setIsLoading(true); // Show loader
     try {
       const response = await axios.post("http://127.0.0.1:5000/generate_syllabus", { subject });
       navigate("/syllabus", { state: { syllabus: response.data } });
     } catch (error) {
       console.error("Error generating syllabus:", error);
+    } finally {
+      setIsLoading(false); // Hide loader
     }
   };
 
@@ -34,7 +39,11 @@ export default function SyllabusGenerator() {
             Generate
           </button>
         </form>
+        
       </div>
+      <br/>
+        <br/>
+        {isLoading && <Loader />} {/* Render the loader below the form */}
     </div>
   );
 }

@@ -109,7 +109,7 @@ def generate_syllabus(subject):
     prompt = f"""
     Generate a detailed  syllabus for the subject "{subject}" with:
     - A brief introduction.
-    - A list of key topics (only 2).
+    - A list of key topics (only 3).
     - A short summary in 1-2 lines.
     - A one-liner footer statement.
 
