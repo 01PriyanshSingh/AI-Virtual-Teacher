@@ -1,241 +1,303 @@
 {
-    "Nutrition and Meal Planning": [
+    "Laws of Reflection": [
         {
-            "name": "Macronutrients",
+            "name": "Law of Reflection",
             "subsubtopics": [
                 {
-                    "name": "Carbohydrates",
-                    "title": "Carbohydrates food examples",
-                    "explanation": "Carbohydrates are the body's primary source of energy, and they come in two forms: simple and complex. Simple carbohydrates are found in foods like fruits, vegetables, and dairy products, while complex carbohydrates are found in whole grains, legumes, and starchy vegetables."
+                    "name": "Definition of Law of Reflection",
+                    "title": "Law of Reflection Diagram",
+                    "explanation": "The law of reflection states that the angle of incidence is equal to the angle of reflection. This means that when a light ray hits a surface, the angle at which it hits the surface (angle of incidence) is equal to the angle at which it bounces back (angle of reflection).",
+                    "quiz": {
+                        "question": "What is the relationship between the angle of incidence and the angle of reflection?",
+                        "correct_answer": "They are equal",
+                        "wrong_options": [
+                            "They are opposite",
+                            "They are complementary",
+                            "They are supplementary"
+                        ]
+                    }
                 },
                 {
-                    "name": "Protein",
-                    "title": "High protein food sources",
-                    "explanation": "Protein is essential for building and repairing tissues in the body, including muscles, bones, and skin. Good sources of protein include lean meats, fish, eggs, dairy products, legumes, and nuts."
-                },
-                {
-                    "name": "Fats",
-                    "title": "Healthy fats food examples",
-                    "explanation": "Fats are an important source of energy and help the body absorb certain vitamins. There are two types of fats: saturated and unsaturated. Unsaturated fats, found in foods like nuts, seeds, avocados, and olive oil, are considered healthier than saturated fats, found in foods like red meat and full-fat dairy products."
+                    "name": "Applications of Law of Reflection",
+                    "title": "Mirror Reflection",
+                    "explanation": "The law of reflection has many applications in our daily lives, such as in mirrors, telescopes, and microscopes. It is also used in optical fibers, which are used for communication and data transmission.",
+                    "quiz": {
+                        "question": "What is one of the main applications of the law of reflection?",
+                        "correct_answer": "Mirrors",
+                        "wrong_options": [
+                            "Lenses",
+                            "Prisms",
+                            "Diffraction gratings"
+                        ]
+                    }
                 }
             ]
         },
         {
-            "name": "Meal Planning",
+            "name": "Types of Reflection",
             "subsubtopics": [
                 {
-                    "name": "Breakfast Planning",
-                    "title": "Healthy breakfast ideas",
-                    "explanation": "Eating a healthy breakfast can help jumpstart your metabolism and provide energy for the day. A balanced breakfast should include a combination of protein, complex carbohydrates, and healthy fats."
+                    "name": "Specular Reflection",
+                    "title": "Specular Reflection Image",
+                    "explanation": "Specular reflection occurs when a light ray hits a smooth surface, such as a mirror or a still pond. The reflected light ray is identical to the incident light ray, with the same angle and intensity.",
+                    "quiz": {
+                        "question": "What type of reflection occurs on a smooth surface?",
+                        "correct_answer": "Specular reflection",
+                        "wrong_options": [
+                            "Diffuse reflection",
+                            "Total internal reflection",
+                            "Polarized reflection"
+                        ]
+                    }
                 },
                 {
-                    "name": "Lunch and Dinner Planning",
-                    "title": "Meal prep ideas for lunch and dinner",
-                    "explanation": "Planning your lunches and dinners in advance can help you save time and money, and ensure that you're getting a balanced diet. Consider meal prepping on the weekends or one day a week, and aim to include a variety of protein sources, vegetables, and whole grains."
-                },
-                {
-                    "name": "Snack Planning",
-                    "title": "Healthy snack options",
-                    "explanation": "Snacking can be a healthy way to curb hunger and provide a boost of energy between meals. Choose snacks that are high in nutrients and low in added sugars, salt, and unhealthy fats. Fresh fruit, nuts, carrot sticks with hummus, and energy balls made with oats and nuts are all healthy snack options."
+                    "name": "Diffuse Reflection",
+                    "title": "Diffuse Reflection Diagram",
+                    "explanation": "Diffuse reflection occurs when a light ray hits a rough surface, such as a piece of paper or a rock. The reflected light rays are scattered in different directions, with different angles and intensities.",
+                    "quiz": {
+                        "question": "What type of reflection occurs on a rough surface?",
+                        "correct_answer": "Diffuse reflection",
+                        "wrong_options": [
+                            "Specular reflection",
+                            "Total internal reflection",
+                            "Polarized reflection"
+                        ]
+                    }
                 }
             ]
         },
         {
-            "name": "Special Diets",
+            "name": "Reflection from Different Surfaces",
             "subsubtopics": [
                 {
-                    "name": "Vegan Diet",
-                    "title": "Vegan diet food examples",
-                    "explanation": "A vegan diet excludes all animal products, including meat, dairy, eggs, and even honey. Vegans can get all the nutrients they need from plant-based sources, including legumes, nuts, seeds, whole grains, and soy products."
+                    "name": "Reflection from Plane Surfaces",
+                    "title": "Plane Mirror Reflection",
+                    "explanation": "When a light ray hits a plane surface, such as a mirror or a piece of glass, the reflected light ray follows the law of reflection. The angle of incidence is equal to the angle of reflection.",
+                    "quiz": {
+                        "question": "What happens when a light ray hits a plane surface?",
+                        "correct_answer": "The angle of incidence equals the angle of reflection",
+                        "wrong_options": [
+                            "The angle of incidence is greater than the angle of reflection",
+                            "The angle of incidence is less than the angle of reflection",
+                            "The angle of incidence is unrelated to the angle of reflection"
+                        ]
+                    }
                 },
                 {
-                    "name": "Gluten-Free Diet",
-                    "title": "Gluten-free food options",
-                    "explanation": "A gluten-free diet is necessary for individuals with celiac disease or a gluten intolerance. Gluten is a protein found in wheat, barley, and rye, and can be replaced with gluten-free grains like rice, quinoa, and corn."
-                },
-                {
-                    "name": "Ketogenic Diet",
-                    "title": "Ketogenic diet food examples",
-                    "explanation": "A ketogenic diet is a high-fat, low-carbohydrate diet that can help with weight loss and improve blood sugar control. The diet involves drastically reducing the intake of carbohydrates and replacing them with fat, which can help the body enter a state of ketosis."
-                }
-            ]
-        },
-        {
-            "name": "Nutrition and Health",
-            "subsubtopics": [
-                {
-                    "name": "Weight Management",
-                    "title": "Healthy weight loss tips",
-                    "explanation": "Maintaining a healthy weight is crucial for overall health and can help reduce the risk of chronic diseases like heart disease, diabetes, and certain types of cancer. A combination of a balanced diet and regular exercise can help with weight management."
-                },
-                {
-                    "name": "Digestive Health",
-                    "title": "Foods for gut health",
-                    "explanation": "A healthy gut microbiome is essential for a strong immune system and overall health. Eating foods that are high in fiber, such as fruits, vegetables, and whole grains, can help support the growth of beneficial gut bacteria."
-                },
-                {
-                    "name": "Mental Health",
-                    "title": "Nutrition and mental health connection",
-                    "explanation": "There is a strong connection between nutrition and mental health, and a balanced diet can help support mental well-being. Foods that are high in omega-3 fatty acids, such as fatty fish, nuts, and seeds, can help reduce symptoms of depression and anxiety."
+                    "name": "Reflection from Curved Surfaces",
+                    "title": "Curved Mirror Reflection",
+                    "explanation": "When a light ray hits a curved surface, such as a concave or convex mirror, the reflected light ray is affected by the curvature of the surface. The angle of incidence and the angle of reflection are related to the radius of curvature of the surface.",
+                    "quiz": {
+                        "question": "How does the curvature of a surface affect the reflection of a light ray?",
+                        "correct_answer": "It changes the angle of reflection",
+                        "wrong_options": [
+                            "It has no effect on the angle of reflection",
+                            "It increases the intensity of the reflected light",
+                            "It decreases the intensity of the reflected light"
+                        ]
+                    }
                 }
             ]
         }
     ],
-    "Exercise and Physical Activity": [
+    "Types of Reflection": [
         {
-            "name": "Aerobic Exercise",
+            "name": "Specular Reflection",
             "subsubtopics": [
                 {
-                    "name": "Brisk Walking",
-                    "title": "Brisk walking in a park",
-                    "explanation": "Brisk walking is a form of aerobic exercise that can be done by anyone, anywhere. It's a low-impact activity that can help improve cardiovascular health and boost mood."
+                    "name": "Mirror Reflection",
+                    "title": "Mirror Reflection Image",
+                    "explanation": "Specular reflection occurs when light hits a smooth surface, such as a mirror, and bounces back without being scattered. This type of reflection is characterized by a clear and sharp image of the object being reflected.",
+                    "quiz": {
+                        "question": "What type of surface is required for specular reflection to occur?",
+                        "correct_answer": "Smooth surface",
+                        "wrong_options": [
+                            "Rough surface",
+                            "Diffuse surface",
+                            "Transparent surface"
+                        ]
+                    }
                 },
                 {
-                    "name": "Jogging and Running",
-                    "title": "Jogging on a treadmill",
-                    "explanation": "Jogging and running are high-intensity aerobic exercises that can improve cardiovascular health, burn calories, and increase lung function. They can be done outdoors or on a treadmill."
-                },
-                {
-                    "name": "Swimming",
-                    "title": "Swimming laps in a pool",
-                    "explanation": "Swimming is a low-impact aerobic exercise that's easy on the joints. It can help improve cardiovascular health, build endurance, and increase muscle strength."
+                    "name": "Still Water Reflection",
+                    "title": "Still Water Reflection Image",
+                    "explanation": "Still water can also produce specular reflection, creating a clear and sharp image of the surrounding environment. This type of reflection is often seen in calm lakes, ponds, and mirrors.",
+                    "quiz": {
+                        "question": "What condition is necessary for still water to produce specular reflection?",
+                        "correct_answer": "Calmness",
+                        "wrong_options": [
+                            "Turbulence",
+                            "Depth",
+                            "Color"
+                        ]
+                    }
                 }
             ]
         },
         {
-            "name": "Strength Training",
+            "name": "Diffuse Reflection",
             "subsubtopics": [
                 {
-                    "name": "Weightlifting",
-                    "title": "Lifting weights at the gym",
-                    "explanation": "Weightlifting is a form of strength training that can help build muscle mass, increase bone density, and improve overall health. It can be done with free weights or machines."
+                    "name": "Rough Surface Reflection",
+                    "title": "Rough Surface Reflection Image",
+                    "explanation": "Diffuse reflection occurs when light hits a rough surface and is scattered in different directions. This type of reflection is characterized by a blurry and distorted image of the object being reflected.",
+                    "quiz": {
+                        "question": "What type of surface is responsible for diffuse reflection?",
+                        "correct_answer": "Rough surface",
+                        "wrong_options": [
+                            "Smooth surface",
+                            "Transparent surface",
+                            "Mirrored surface"
+                        ]
+                    }
                 },
                 {
-                    "name": "Bodyweight Exercises",
-                    "title": "Doing push-ups at home",
-                    "explanation": "Bodyweight exercises are a form of strength training that don't require any equipment. They can be done anywhere and can help improve muscle strength, flexibility, and balance."
-                },
-                {
-                    "name": "Resistance Band Exercises",
-                    "title": "Using resistance bands for a workout",
-                    "explanation": "Resistance band exercises are a form of strength training that use elastic bands to provide resistance. They're portable, affordable, and can be used to work out multiple muscle groups."
+                    "name": "Textured Surface Reflection",
+                    "title": "Textured Surface Reflection Image",
+                    "explanation": "Textured surfaces, such as fabric or rock, can also produce diffuse reflection. The rough texture of these surfaces scatters light in different directions, creating a blurry and distorted image.",
+                    "quiz": {
+                        "question": "What characteristic of a surface contributes to diffuse reflection?",
+                        "correct_answer": "Texture",
+                        "wrong_options": [
+                            "Color",
+                            "Shape",
+                            "Size"
+                        ]
+                    }
                 }
             ]
         },
         {
-            "name": "Flexibility and Stretching",
+            "name": "Total Internal Reflection",
             "subsubtopics": [
                 {
-                    "name": "Yoga",
-                    "title": "Doing yoga poses in a studio",
-                    "explanation": "Yoga is a form of exercise that combines physical postures, breathing techniques, and meditation to improve flexibility, balance, and overall well-being."
+                    "name": "Optical Fiber Reflection",
+                    "title": "Optical Fiber Reflection Image",
+                    "explanation": "Total internal reflection occurs when light hits a medium with a lower refractive index at a shallow angle. This type of reflection is used in optical fibers to transmit data as light signals.",
+                    "quiz": {
+                        "question": "What is the primary application of total internal reflection?",
+                        "correct_answer": "Optical fiber communication",
+                        "wrong_options": [
+                            "Medical imaging",
+                            "Solar energy",
+                            "LED lighting"
+                        ]
+                    }
                 },
                 {
-                    "name": "Pilates",
-                    "title": "Doing pilates exercises on a mat",
-                    "explanation": "Pilates is a form of exercise that focuses on core strength, flexibility, and body control. It can help improve posture, balance, and overall physical fitness."
-                },
-                {
-                    "name": "Static Stretching",
-                    "title": "Stretching after a workout",
-                    "explanation": "Static stretching is a form of stretching that involves holding a stretch for a period of time. It can help improve flexibility, reduce muscle soreness, and improve range of motion."
-                }
-            ]
-        },
-        {
-            "name": "High-Intensity Interval Training (HIIT)",
-            "subsubtopics": [
-                {
-                    "name": "Sprint Intervals",
-                    "title": "Sprinting on a track",
-                    "explanation": "Sprint intervals involve short bursts of high-intensity exercise followed by brief periods of rest. They can help improve cardiovascular health, increase speed, and boost metabolism."
-                },
-                {
-                    "name": "Burpees",
-                    "title": "Doing burpees in a workout",
-                    "explanation": "Burpees are a full-body exercise that involve a squat, push-up, and jump. They're a form of HIIT that can help improve cardiovascular health, increase strength, and boost endurance."
-                },
-                {
-                    "name": "Tabata Workouts",
-                    "title": "Doing a Tabata workout at home",
-                    "explanation": "Tabata workouts involve short bursts of high-intensity exercise followed by brief periods of rest. They're a form of HIIT that can help improve cardiovascular health, increase speed, and boost metabolism."
+                    "name": "Prism Reflection",
+                    "title": "Prism Reflection Image",
+                    "explanation": "Total internal reflection can also occur in prisms, where light is reflected back into the prism due to the angle of incidence. This type of reflection is used in various optical instruments, such as binoculars and telescopes.",
+                    "quiz": {
+                        "question": "What type of optical instrument uses total internal reflection?",
+                        "correct_answer": "Binoculars",
+                        "wrong_options": [
+                            "Microscope",
+                            "Spectrometer",
+                            "Thermometer"
+                        ]
+                    }
                 }
             ]
         }
     ],
-    "Mindful Eating and Behavioral Change": [
+    "Reflection from Curved Surfaces": [
         {
-            "name": "Introduction to Mindful Eating",
+            "name": "Spherical Mirrors",
             "subsubtopics": [
                 {
-                    "name": "Definition of Mindful Eating",
-                    "title": "Mindful eating concept illustration",
-                    "explanation": "Mindful eating is the practice of paying attention to the experience of eating and drinking, both physically and emotionally, without judgment or distraction."
+                    "name": "Convex Mirrors",
+                    "title": "Convex Mirror Diagram",
+                    "explanation": "A convex mirror is a spherical mirror that curves outward. It is also known as a diverging mirror. Convex mirrors are used in security systems and as rear-view mirrors in vehicles because they provide a wider field of view.",
+                    "quiz": {
+                        "question": "What type of mirror always forms a virtual image?",
+                        "correct_answer": "Convex Mirror",
+                        "wrong_options": [
+                            "Concave Mirror",
+                            "Plane Mirror",
+                            "Two-way Mirror"
+                        ]
+                    }
                 },
                 {
-                    "name": "Benefits of Mindful Eating",
-                    "title": "Healthy food and mindful eating",
-                    "explanation": "Mindful eating has been shown to have numerous benefits, including weight management, improved digestion, and reduced stress and anxiety."
+                    "name": "Concave Mirrors",
+                    "title": "Concave Mirror Diagram",
+                    "explanation": "A concave mirror is a spherical mirror that curves inward. It is also known as a converging mirror. Concave mirrors are used in telescopes and as shaving mirrors because they can form magnified images.",
+                    "quiz": {
+                        "question": "What type of mirror can form a real image?",
+                        "correct_answer": "Concave Mirror",
+                        "wrong_options": [
+                            "Convex Mirror",
+                            "Plane Mirror",
+                            "Parabolic Mirror"
+                        ]
+                    }
                 }
             ]
         },
         {
-            "name": "Understanding Eating Behaviors",
+            "name": "Elliptical Mirrors",
             "subsubtopics": [
                 {
-                    "name": "Emotional Eating",
-                    "title": "Emotional eating triggers illustration",
-                    "explanation": "Emotional eating is the practice of using food as a way to cope with emotions, such as stress, anxiety, or sadness, rather than physical hunger."
+                    "name": "Elliptical Mirror Properties",
+                    "title": "Elliptical Mirror Properties Diagram",
+                    "explanation": "An elliptical mirror has a curved surface that is shaped like an ellipse. It has two foci, and any ray that passes through one focus will be reflected to the other focus.",
+                    "quiz": {
+                        "question": "What is the main characteristic of an elliptical mirror?",
+                        "correct_answer": "It has two foci",
+                        "wrong_options": [
+                            "It has one focus",
+                            "It has a flat surface",
+                            "It is a type of convex mirror"
+                        ]
+                    }
                 },
                 {
-                    "name": "Habit Formation",
-                    "title": "Habit formation process diagram",
-                    "explanation": "Habit formation refers to the process by which behaviors, including eating behaviors, become automatic and ingrained over time."
+                    "name": "Applications of Elliptical Mirrors",
+                    "title": "Elliptical Mirror Applications Diagram",
+                    "explanation": "Elliptical mirrors are used in various applications such as telescopes, microscopes, and laser systems. They are also used in solar energy systems to focus sunlight onto a receiver.",
+                    "quiz": {
+                        "question": "What is one of the main applications of elliptical mirrors?",
+                        "correct_answer": "Telescopes",
+                        "wrong_options": [
+                            "Microphones",
+                            "Solar Panels",
+                            "Radar Systems"
+                        ]
+                    }
                 }
             ]
         },
         {
-            "name": "Strategies for Behavioral Change",
+            "name": "Parabolic Mirrors",
             "subsubtopics": [
                 {
-                    "name": "Setting Realistic Goals",
-                    "title": "Goal setting template for mindful eating",
-                    "explanation": "Setting realistic goals is an important step in making sustainable changes to eating behaviors, and involves identifying specific, achievable objectives."
+                    "name": "Parabolic Mirror Properties",
+                    "title": "Parabolic Mirror Properties Diagram",
+                    "explanation": "A parabolic mirror is a U-shaped mirror that has a curved surface. It has one focus, and any ray that is parallel to the axis of the mirror will be reflected to the focus.",
+                    "quiz": {
+                        "question": "What is the main characteristic of a parabolic mirror?",
+                        "correct_answer": "It has one focus",
+                        "wrong_options": [
+                            "It has two foci",
+                            "It has a flat surface",
+                            "It is a type of convex mirror"
+                        ]
+                    }
                 },
                 {
-                    "name": "Tracking Progress",
-                    "title": "Food and activity tracker illustration",
-                    "explanation": "Tracking progress, such as through food diaries or mobile apps, can help individuals monitor their eating behaviors and stay motivated to make changes."
-                }
-            ]
-        },
-        {
-            "name": "Mindful Eating Techniques",
-            "subsubtopics": [
-                {
-                    "name": "Eating Slowly and Savoring",
-                    "title": "Slow eating and savoring food illustration",
-                    "explanation": "Eating slowly and savoring food can help individuals develop a greater appreciation for the experience of eating and reduce distracted eating."
-                },
-                {
-                    "name": "Noticing Hunger and Fullness Cues",
-                    "title": "Hunger and fullness scale illustration",
-                    "explanation": "Noticing hunger and fullness cues, such as physical sensations of hunger or fullness, can help individuals develop a greater awareness of their physical needs and eat more intuitively."
-                }
-            ]
-        },
-        {
-            "name": "Overcoming Challenges and Maintaining Motivation",
-            "subsubtopics": [
-                {
-                    "name": "Managing Setbacks and Relapse",
-                    "title": "Overcoming setbacks in mindful eating illustration",
-                    "explanation": "Managing setbacks and relapse involves developing strategies to cope with challenges and maintain motivation, such as seeking support or reframing negative thoughts."
-                },
-                {
-                    "name": "Building a Supportive Environment",
-                    "title": "Supportive eating environment illustration",
-                    "explanation": "Building a supportive environment, such as by removing triggers or finding healthy eating role models, can help individuals maintain motivation and make sustainable changes to their eating behaviors."
+                    "name": "Applications of Parabolic Mirrors",
+                    "title": "Parabolic Mirror Applications Diagram",
+                    "explanation": "Parabolic mirrors are used in various applications such as telescopes, satellite dishes, and solar energy systems. They are also used in headlights and spotlights to focus light into a beam.",
+                    "quiz": {
+                        "question": "What is one of the main applications of parabolic mirrors?",
+                        "correct_answer": "Telescopes",
+                        "wrong_options": [
+                            "Microscopes",
+                            "Laser Systems",
+                            "Radar Systems"
+                        ]
+                    }
                 }
             ]
         }

@@ -7,4 +7,6 @@ flask-backend/downloaded_images
 flask-backend/subtopics.json
 flask-backend/venv
 flask-backend/__pycache__
+main.java
 .gitignore
+

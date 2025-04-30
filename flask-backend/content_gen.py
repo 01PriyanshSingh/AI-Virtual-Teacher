@@ -19,7 +19,12 @@ def generate_subtopics(key_topic):
 
     prompt = f"""
     For the key topic "{key_topic}", generate a list of subtopics, each containing subsubtopics.
-    Each subsubtopic should have a title for fetching an image and an explanation.
+    Each subsubtopic should have a title for fetching an image, an explanation, and a quiz question.
+
+    The quiz should include:
+    - A relevant question based on the subsubtopic
+    - One correct answer
+    - Three incorrect but plausible options
 
     Return the response in structured JSON format:
     {{
@@ -30,12 +35,22 @@ def generate_subtopics(key_topic):
                     {{
                         "name": "<Subsubtopic 1>",
                         "title": "<Title for Image Search>",
-                        "explanation": "<Explanation for Subsubtopic 1>"
+                        "explanation": "<Explanation for Subsubtopic 1>",
+                        "quiz": {{
+                            "question": "<Quiz question>",
+                            "correct_answer": "<Correct answer>",
+                            "wrong_options": ["<Wrong option 1>", "<Wrong option 2>", "<Wrong option 3>"]
+                        }}
                     }},
                     {{
                         "name": "<Subsubtopic 2>",
                         "title": "<Title for Image Search>",
-                        "explanation": "<Explanation for Subsubtopic 2>"
+                        "explanation": "<Explanation for Subsubtopic 2>",
+                        "quiz": {{
+                            "question": "<Quiz question>",
+                            "correct_answer": "<Correct answer>",
+                            "wrong_options": ["<Wrong option 1>", "<Wrong option 2>", "<Wrong option 3>"]
+                        }}
                     }}
                 ]
             }}

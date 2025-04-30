@@ -290,8 +290,20 @@ const getTTSUrl = (text, language = "en") => {
 
   return (
     <div className="flex h-screen">
+      
       {/* Main Content (3/4th of the page) */}
-      <div className="w-3/4 p-8 bg-gray-100 flex flex-col justify-between">
+      <div className="w-3/4 p-8 bg-gray-100 flex flex-col justify-between relative">
+            <div className="absolute top-4 right-4">
+        <button
+          onClick={() => window.open("/quiz", "_blank")}
+          className="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-700 shadow-md"
+        >
+          Access Quiz
+        </button>
+      </div>
+
+        
+        
         <div>
           <h1 className="text-3xl font-bold text-blue-600">{syllabus.subject || "No Subject"}</h1>
           <h2 className={`text-2xl font-semibold mt-4 ${highlightedTopic === currentTopic ? "text-red-600" : ""}`}>

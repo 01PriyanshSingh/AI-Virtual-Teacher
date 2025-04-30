@@ -312,6 +312,45 @@ def submit_doubt():
     except Exception as e:
         print("⚠️ LLM Error:", str(e))
         return jsonify({"error": "Failed to generate answer from LLM", "details": str(e)}), 500
+
+
+import random
+@app.route("/get_quiz")
+def get_quiz():
+    """Fetch quiz data from the subtopics.json and return formatted quiz questions."""
+    try:
+        with open(SUBTOPICS_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        quiz_questions = []
+
+        for topic, subtopics in data.items():
+            for subtopic in subtopics:
+                for subsubtopic in subtopic.get("subsubtopics", []):
+                    if "quiz" in subsubtopic:
+                        quiz_data = subsubtopic["quiz"]
+                        question = quiz_data["question"]
+                        correct_answer = quiz_data["correct_answer"]
+                        wrong_options = quiz_data["wrong_options"]
+
+                        options = [correct_answer] + wrong_options
+                        shuffled_options = options.copy()
+                        random.shuffle(shuffled_options)
+
+                        quiz_questions.append({
+                            "question": question,
+                            "correct_answer": correct_answer,
+                            "options": shuffled_options,
+                            "topic": topic  # Add topic here
+                        })
+
+        return jsonify(quiz_questions)
+
+    except Exception as e:
+        return jsonify({"error": "Failed to load quiz data", "details": str(e)}), 500
+
+
+
     
 
 
