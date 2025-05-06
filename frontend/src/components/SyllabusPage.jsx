@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react"; // Combined import
+import Navbar from "./Navbar";
 
 // Create an audio ref for TTS playback
 
@@ -289,10 +290,10 @@ const getTTSUrl = (text, language = "en") => {
   
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen overflow-hidden ">
       
       {/* Main Content (3/4th of the page) */}
-      <div className="w-3/4 p-8 bg-gray-100 flex flex-col justify-between relative">
+      <div className="w-3/4 p-8 bg-gray-100 flex flex-col justify-between relative overflow-hidden h-full ">
             <div className="absolute top-4 right-4">
         <button
           onClick={() => window.open("/quiz", "_blank")}
@@ -325,22 +326,28 @@ const getTTSUrl = (text, language = "en") => {
             <img
               src={imageUrl}
               alt="Subsubtopic Illustration"
-              className="mt-4 w-100 h-96 object-contain rounded-lg shadow-md" // Increased size
+              className="mt-4 w-100 h-96 object-contain rounded-lg shadow-md mx-auto" // Increased size
             />
           )}
         </div>
 
         {/* Navigation & Teaching Buttons */}
-        <div className="flex justify-end mt-4">
-          <button
-            onClick={toggleTeaching}
-            className={`px-4 py-2 rounded-md text-white ${
-              !isTeaching ? "bg-purple-600" : isPaused ? "bg-green-500" : "bg-yellow-500"
-            }`}
-          >
-            {!isTeaching ? "Start Teaching" : isPaused ? "Resume" : "Pause"}
-          </button>
-        </div>
+        <div className="flex flex-col h-screen relative">
+            <div className="flex-1 p-8 bg-gray-100">
+              {/* Main content goes here */}
+            </div>
+            <div className="absolute bottom-14 right-4">
+              <button
+                onClick={toggleTeaching}
+                className={`px-4 py-2 rounded-md text-white ${
+                  !isTeaching ? "bg-purple-600" : isPaused ? "bg-green-500" : "bg-yellow-500"
+                }`}
+              >
+                {!isTeaching ? "Start Teaching" : isPaused ? "Resume" : "Pause"}
+              </button>
+            </div>
+          </div>
+
 
       </div>
 
@@ -615,7 +622,7 @@ const getTTSUrl = (text, language = "en") => {
     <video
       ref={videoRef}
       src="/avatar.mp4"
-      className="w-40 h-40 rounded-full shadow-lg border border-gray-300"
+      className="w-40 h-40 rounded-full shadow-lg border border-gray-300 object-cover"
       muted
     />
   </div>

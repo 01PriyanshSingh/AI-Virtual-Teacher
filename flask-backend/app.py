@@ -12,6 +12,12 @@ import requests
 from io import BytesIO
 from pydub import AudioSegment
 import re
+from flask import Flask, request, send_file, abort
+import edge_tts
+import asyncio
+import uuid
+
+
 
 
 load_dotenv()
@@ -46,56 +52,83 @@ def split_text_into_chunks(text, max_chars=200):
         chunks.append(current_chunk.strip())
     return chunks
 
-@app.route('/tts')
+# Function to synthesize male voice using Edge TTS
+def synthesize_speech(text, voice="en-US-GuyNeural", filename="output.mp3"):
+    async def run():
+        communicate = edge_tts.Communicate(text, voice)
+        await communicate.save(filename)
+    asyncio.run(run())
+
+@app.route("/tts")
 def tts():
-    text = request.args.get('text')
-    language = request.args.get('language', 'en')
+    text = request.args.get("text")
     if not text:
-        abort(400, 'Text parameter is required')
+        abort(400, description="Missing 'text' parameter")
+
+    # You can change this to another male voice if needed
+    male_voice = "en-US-GuyNeural"
+
+    # Generate a temporary unique filename
+    file_id = f"{uuid.uuid4().hex}.mp3"
+    filepath = os.path.join("/tmp", file_id)
+
+    try:
+        synthesize_speech(text, male_voice, filepath)
+        return send_file(filepath, mimetype="audio/mpeg", as_attachment=False, download_name="tts.mp3")
+    finally:
+        if os.path.exists(filepath):
+            os.remove(filepath)
+
+# @app.route('/tts')
+# def tts():
+#     text = request.args.get('text')
+#     language = request.args.get('language', 'en')
+#     if not text:
+#         abort(400, 'Text parameter is required')
     
-    # Google Translate TTS endpoint details
-    base_url = 'https://translate.google.com/translate_tts'
-    params = {
-        'ie': 'UTF-8',
-        'client': 'tw-ob',
-        'tl': language,
-    }
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
-                      '(KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36',
-        'Referer': 'https://translate.google.com/'
-    }
+#     # Google Translate TTS endpoint details
+#     base_url = 'https://translate.google.com/translate_tts'
+#     params = {
+#         'ie': 'UTF-8',
+#         'client': 'tw-ob',
+#         'tl': language,
+#     }
+#     headers = {
+#         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+#                       '(KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36',
+#         'Referer': 'https://translate.google.com/'
+#     }
     
-    # Split text into chunks if it exceeds the maximum allowed characters.
-    max_chars = 200  # Adjust this limit as needed
-    if len(text) > max_chars:
-        chunks = split_text_into_chunks(text, max_chars)
-    else:
-        chunks = [text]
+#     # Split text into chunks if it exceeds the maximum allowed characters.
+#     max_chars = 200  # Adjust this limit as needed
+#     if len(text) > max_chars:
+#         chunks = split_text_into_chunks(text, max_chars)
+#     else:
+#         chunks = [text]
     
-    audio_segments = []
+#     audio_segments = []
     
-    # For each chunk, fetch the TTS audio from Google
-    for chunk in chunks:
-        params['q'] = chunk
-        response = requests.get(base_url, params=params, headers=headers)
-        if response.status_code != 200:
-            abort(response.status_code, description="Error fetching TTS audio")
-        # Load the fetched audio as an AudioSegment (assuming MP3 format)
-        segment = AudioSegment.from_file(BytesIO(response.content), format="mp3")
-        audio_segments.append(segment)
+#     # For each chunk, fetch the TTS audio from Google
+#     for chunk in chunks:
+#         params['q'] = chunk
+#         response = requests.get(base_url, params=params, headers=headers)
+#         if response.status_code != 200:
+#             abort(response.status_code, description="Error fetching TTS audio")
+#         # Load the fetched audio as an AudioSegment (assuming MP3 format)
+#         segment = AudioSegment.from_file(BytesIO(response.content), format="mp3")
+#         audio_segments.append(segment)
     
-    # Concatenate all audio segments into one
-    combined_audio = audio_segments[0]
-    for seg in audio_segments[1:]:
-        combined_audio += seg  # This appends the next segment
+#     # Concatenate all audio segments into one
+#     combined_audio = audio_segments[0]
+#     for seg in audio_segments[1:]:
+#         combined_audio += seg  # This appends the next segment
     
-    # Export the combined audio to a BytesIO object
-    output = BytesIO()
-    combined_audio.export(output, format="mp3")
-    output.seek(0)
+#     # Export the combined audio to a BytesIO object
+#     output = BytesIO()
+#     combined_audio.export(output, format="mp3")
+#     output.seek(0)
     
-    return send_file(output, mimetype="audio/mpeg", as_attachment=False, download_name="tts.mp3")
+#     return send_file(output, mimetype="audio/mpeg", as_attachment=False, download_name="tts.mp3")
 
 def generate_syllabus(subject):
     file_path = "subtopics.json"
@@ -283,7 +316,7 @@ def submit_doubt():
         }
         payload = {
             "model": MODEL,
-            "messages": [{"role": "user", "content": prompt}]
+            "messages": messages
         }
 
         response = requests.post(url, headers=headers, json=payload)
@@ -293,7 +326,7 @@ def submit_doubt():
             return jsonify({"error": "Groq API failed", "details": response.text}), 500
 
         llm_reply = response.json()["choices"][0]["message"]["content"]
-        llm_reply = response.json()["choices"][0]["message"]["content"]
+        
 
         # Save assistant's reply
         chat_sessions[session_id].append({
@@ -306,8 +339,6 @@ def submit_doubt():
             "session_id": session_id  # return for frontend to reuse
         })
 
-      
-    
 
     except Exception as e:
         print("⚠️ LLM Error:", str(e))

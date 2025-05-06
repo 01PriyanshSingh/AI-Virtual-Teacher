@@ -1,301 +1,268 @@
 {
-    "Laws of Reflection": [
+    "Preparation of the Dosa Batter": [
         {
-            "name": "Law of Reflection",
+            "name": "Introduction to Dosa Batter",
             "subsubtopics": [
                 {
-                    "name": "Definition of Law of Reflection",
-                    "title": "Law of Reflection Diagram",
-                    "explanation": "The law of reflection states that the angle of incidence is equal to the angle of reflection. This means that when a light ray hits a surface, the angle at which it hits the surface (angle of incidence) is equal to the angle at which it bounces back (angle of reflection).",
+                    "name": "What is Dosa Batter",
+                    "title": "Dosa Batter Ingredients",
+                    "explanation": "Dosa batter is a mixture of fermented rice and lentil flour, used to make dosas, a type of Indian crepe. The batter is made by soaking rice and lentils in water, grinding them into a fine paste, and then fermenting the mixture to create a natural yeast that helps the dosas to rise.",
                     "quiz": {
-                        "question": "What is the relationship between the angle of incidence and the angle of reflection?",
-                        "correct_answer": "They are equal",
+                        "question": "What is the main ingredient in dosa batter?",
+                        "correct_answer": "Rice and Lentils",
                         "wrong_options": [
-                            "They are opposite",
-                            "They are complementary",
-                            "They are supplementary"
+                            "Wheat Flour",
+                            "Corn Flour",
+                            "Buckwheat Flour"
                         ]
                     }
                 },
                 {
-                    "name": "Applications of Law of Reflection",
-                    "title": "Mirror Reflection",
-                    "explanation": "The law of reflection has many applications in our daily lives, such as in mirrors, telescopes, and microscopes. It is also used in optical fibers, which are used for communication and data transmission.",
+                    "name": "Importance of Fermentation",
+                    "title": "Fermentation Process of Dosa Batter",
+                    "explanation": "Fermentation is an essential step in making dosa batter, as it helps to break down the starches in the rice and lentils, creating a natural yeast that gives dosas their characteristic flavor and texture. The fermentation process can take anywhere from 8 to 24 hours, depending on the temperature and the type of dosa being made.",
                     "quiz": {
-                        "question": "What is one of the main applications of the law of reflection?",
-                        "correct_answer": "Mirrors",
+                        "question": "What is the purpose of fermentation in dosa batter?",
+                        "correct_answer": "To create a natural yeast",
                         "wrong_options": [
-                            "Lenses",
-                            "Prisms",
-                            "Diffraction gratings"
+                            "To add flavor",
+                            "To change the texture",
+                            "To preserve the batter"
                         ]
                     }
                 }
             ]
         },
         {
-            "name": "Types of Reflection",
+            "name": "Preparing the Dosa Batter",
             "subsubtopics": [
                 {
-                    "name": "Specular Reflection",
-                    "title": "Specular Reflection Image",
-                    "explanation": "Specular reflection occurs when a light ray hits a smooth surface, such as a mirror or a still pond. The reflected light ray is identical to the incident light ray, with the same angle and intensity.",
+                    "name": "Soaking and Grinding",
+                    "title": "Soaking Rice and Lentils for Dosa Batter",
+                    "explanation": "Soaking rice and lentils in water is the first step in making dosa batter. The rice and lentils are typically soaked for 4-6 hours, and then ground into a fine paste using a grinder or blender. The ratio of rice to lentils can vary depending on the type of dosa being made.",
                     "quiz": {
-                        "question": "What type of reflection occurs on a smooth surface?",
-                        "correct_answer": "Specular reflection",
+                        "question": "How long are rice and lentils typically soaked for?",
+                        "correct_answer": "4-6 hours",
                         "wrong_options": [
-                            "Diffuse reflection",
-                            "Total internal reflection",
-                            "Polarized reflection"
+                            "2-3 hours",
+                            "8-10 hours",
+                            "12 hours"
                         ]
                     }
                 },
                 {
-                    "name": "Diffuse Reflection",
-                    "title": "Diffuse Reflection Diagram",
-                    "explanation": "Diffuse reflection occurs when a light ray hits a rough surface, such as a piece of paper or a rock. The reflected light rays are scattered in different directions, with different angles and intensities.",
+                    "name": "Mixing and Fermenting",
+                    "title": "Mixing and Fermenting Dosa Batter",
+                    "explanation": "After grinding the rice and lentils, the batter is mixed with water and other ingredients such as salt and yogurt. The batter is then left to ferment for several hours, during which time it will start to bubble and emit a sour smell. The fermentation time can vary depending on the temperature and the type of dosa being made.",
                     "quiz": {
-                        "question": "What type of reflection occurs on a rough surface?",
-                        "correct_answer": "Diffuse reflection",
+                        "question": "What happens to the dosa batter during fermentation?",
+                        "correct_answer": "It starts to bubble and emit a sour smell",
                         "wrong_options": [
-                            "Specular reflection",
-                            "Total internal reflection",
-                            "Polarized reflection"
+                            "It becomes thicker",
+                            "It becomes thinner",
+                            "It turns into a solid"
                         ]
                     }
                 }
             ]
         },
         {
-            "name": "Reflection from Different Surfaces",
+            "name": "Tips and Variations",
             "subsubtopics": [
                 {
-                    "name": "Reflection from Plane Surfaces",
-                    "title": "Plane Mirror Reflection",
-                    "explanation": "When a light ray hits a plane surface, such as a mirror or a piece of glass, the reflected light ray follows the law of reflection. The angle of incidence is equal to the angle of reflection.",
+                    "name": "Adding Flavors and Spices",
+                    "title": "Adding Flavors and Spices to Dosa Batter",
+                    "explanation": "Dosa batter can be flavored with a variety of spices and ingredients, such as cumin, coriander, and chilies. Other ingredients such as onions, garlic, and ginger can also be added to the batter to give it more flavor.",
                     "quiz": {
-                        "question": "What happens when a light ray hits a plane surface?",
-                        "correct_answer": "The angle of incidence equals the angle of reflection",
+                        "question": "What can be added to dosa batter to give it more flavor?",
+                        "correct_answer": "Spices and ingredients such as cumin, coriander, and chilies",
                         "wrong_options": [
-                            "The angle of incidence is greater than the angle of reflection",
-                            "The angle of incidence is less than the angle of reflection",
-                            "The angle of incidence is unrelated to the angle of reflection"
+                            "Sugar and honey",
+                            "Salt and vinegar",
+                            "Baking powder and baking soda"
                         ]
                     }
                 },
                 {
-                    "name": "Reflection from Curved Surfaces",
-                    "title": "Curved Mirror Reflection",
-                    "explanation": "When a light ray hits a curved surface, such as a concave or convex mirror, the reflected light ray is affected by the curvature of the surface. The angle of incidence and the angle of reflection are related to the radius of curvature of the surface.",
+                    "name": "Using Different Types of Rice",
+                    "title": "Using Different Types of Rice for Dosa Batter",
+                    "explanation": "Different types of rice can be used to make dosa batter, such as parboiled rice, brown rice, and white rice. Each type of rice will give the dosas a slightly different texture and flavor.",
                     "quiz": {
-                        "question": "How does the curvature of a surface affect the reflection of a light ray?",
-                        "correct_answer": "It changes the angle of reflection",
+                        "question": "What types of rice can be used to make dosa batter?",
+                        "correct_answer": "Parboiled rice, brown rice, and white rice",
                         "wrong_options": [
-                            "It has no effect on the angle of reflection",
-                            "It increases the intensity of the reflected light",
-                            "It decreases the intensity of the reflected light"
+                            "Basmati rice",
+                            "Jasmine rice",
+                            "Wild rice"
                         ]
                     }
                 }
             ]
         }
     ],
-    "Types of Reflection": [
+    "Making the Masala Filling": [
         {
-            "name": "Specular Reflection",
+            "name": "Preparing the Spices",
             "subsubtopics": [
                 {
-                    "name": "Mirror Reflection",
-                    "title": "Mirror Reflection Image",
-                    "explanation": "Specular reflection occurs when light hits a smooth surface, such as a mirror, and bounces back without being scattered. This type of reflection is characterized by a clear and sharp image of the object being reflected.",
+                    "name": "Roasting the Spices",
+                    "title": "Roasting Spices in a Pan",
+                    "explanation": "Roasting spices is an essential step in making the masala filling. It brings out the aroma and flavor of the spices. To roast spices, heat a pan over medium heat and add the spices. Stir constantly until the spices are fragrant and lightly browned.",
                     "quiz": {
-                        "question": "What type of surface is required for specular reflection to occur?",
-                        "correct_answer": "Smooth surface",
+                        "question": "What is the purpose of roasting spices in making the masala filling?",
+                        "correct_answer": "To bring out the aroma and flavor",
                         "wrong_options": [
-                            "Rough surface",
-                            "Diffuse surface",
-                            "Transparent surface"
+                            "To add color to the filling",
+                            "To reduce the spice level",
+                            "To mix with other ingredients"
                         ]
                     }
                 },
                 {
-                    "name": "Still Water Reflection",
-                    "title": "Still Water Reflection Image",
-                    "explanation": "Still water can also produce specular reflection, creating a clear and sharp image of the surrounding environment. This type of reflection is often seen in calm lakes, ponds, and mirrors.",
+                    "name": "Grinding the Spices",
+                    "title": "Grinding Spices in a Grinder",
+                    "explanation": "After roasting the spices, they need to be ground into a fine powder. This can be done using a spice grinder or a mortar and pestle. Grinding the spices helps to release their flavors and oils, which are essential for the masala filling.",
                     "quiz": {
-                        "question": "What condition is necessary for still water to produce specular reflection?",
-                        "correct_answer": "Calmness",
+                        "question": "What is the best way to grind roasted spices?",
+                        "correct_answer": "Using a spice grinder or a mortar and pestle",
                         "wrong_options": [
-                            "Turbulence",
-                            "Depth",
-                            "Color"
+                            "Using a blender",
+                            "Using a food processor",
+                            "Using a rolling pin"
                         ]
                     }
                 }
             ]
         },
         {
-            "name": "Diffuse Reflection",
+            "name": "Cooking the Filling",
             "subsubtopics": [
                 {
-                    "name": "Rough Surface Reflection",
-                    "title": "Rough Surface Reflection Image",
-                    "explanation": "Diffuse reflection occurs when light hits a rough surface and is scattered in different directions. This type of reflection is characterized by a blurry and distorted image of the object being reflected.",
+                    "name": "Saut\u00e9ing the Onions",
+                    "title": "Saut\u00e9ing Onions in a Pan",
+                    "explanation": "Saut\u00e9ing onions is the first step in cooking the masala filling. Heat oil in a pan and add the onions. Cook until the onions are translucent and lightly browned. This adds a sweet and caramelized flavor to the filling.",
                     "quiz": {
-                        "question": "What type of surface is responsible for diffuse reflection?",
-                        "correct_answer": "Rough surface",
+                        "question": "What is the purpose of saut\u00e9ing onions in the masala filling?",
+                        "correct_answer": "To add a sweet and caramelized flavor",
                         "wrong_options": [
-                            "Smooth surface",
-                            "Transparent surface",
-                            "Mirrored surface"
+                            "To add crunch to the filling",
+                            "To reduce the spice level",
+                            "To mix with other ingredients"
                         ]
                     }
                 },
                 {
-                    "name": "Textured Surface Reflection",
-                    "title": "Textured Surface Reflection Image",
-                    "explanation": "Textured surfaces, such as fabric or rock, can also produce diffuse reflection. The rough texture of these surfaces scatters light in different directions, creating a blurry and distorted image.",
+                    "name": "Adding the Spices and Herbs",
+                    "title": "Adding Spices and Herbs to the Filling",
+                    "explanation": "After saut\u00e9ing the onions, add the ground spices and herbs to the pan. Cook for a few minutes until the spices are fragrant and well combined with the onions. This helps to create a balanced and aromatic flavor profile.",
                     "quiz": {
-                        "question": "What characteristic of a surface contributes to diffuse reflection?",
-                        "correct_answer": "Texture",
+                        "question": "What is the purpose of adding spices and herbs to the masala filling?",
+                        "correct_answer": "To create a balanced and aromatic flavor profile",
                         "wrong_options": [
-                            "Color",
-                            "Shape",
-                            "Size"
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "name": "Total Internal Reflection",
-            "subsubtopics": [
-                {
-                    "name": "Optical Fiber Reflection",
-                    "title": "Optical Fiber Reflection Image",
-                    "explanation": "Total internal reflection occurs when light hits a medium with a lower refractive index at a shallow angle. This type of reflection is used in optical fibers to transmit data as light signals.",
-                    "quiz": {
-                        "question": "What is the primary application of total internal reflection?",
-                        "correct_answer": "Optical fiber communication",
-                        "wrong_options": [
-                            "Medical imaging",
-                            "Solar energy",
-                            "LED lighting"
-                        ]
-                    }
-                },
-                {
-                    "name": "Prism Reflection",
-                    "title": "Prism Reflection Image",
-                    "explanation": "Total internal reflection can also occur in prisms, where light is reflected back into the prism due to the angle of incidence. This type of reflection is used in various optical instruments, such as binoculars and telescopes.",
-                    "quiz": {
-                        "question": "What type of optical instrument uses total internal reflection?",
-                        "correct_answer": "Binoculars",
-                        "wrong_options": [
-                            "Microscope",
-                            "Spectrometer",
-                            "Thermometer"
+                            "To add color to the filling",
+                            "To reduce the spice level",
+                            "To mix with other ingredients"
                         ]
                     }
                 }
             ]
         }
     ],
-    "Reflection from Curved Surfaces": [
+    "Assembling and Cooking the Masala Dosa": [
         {
-            "name": "Spherical Mirrors",
+            "name": "Preparing the Dosa Batter",
             "subsubtopics": [
                 {
-                    "name": "Convex Mirrors",
-                    "title": "Convex Mirror Diagram",
-                    "explanation": "A convex mirror is a spherical mirror that curves outward. It is also known as a diverging mirror. Convex mirrors are used in security systems and as rear-view mirrors in vehicles because they provide a wider field of view.",
+                    "name": "Fermenting the Batter",
+                    "title": "Fermented Dosa Batter Image",
+                    "explanation": "Fermenting the dosa batter is a crucial step in preparing the masala dosa. The batter should be left to ferment overnight, allowing the yeast to activate and the batter to rise. This process gives the dosa its characteristic sour taste and spongy texture.",
                     "quiz": {
-                        "question": "What type of mirror always forms a virtual image?",
-                        "correct_answer": "Convex Mirror",
+                        "question": "What is the primary purpose of fermenting the dosa batter?",
+                        "correct_answer": "To activate the yeast and give the dosa its characteristic taste and texture",
                         "wrong_options": [
-                            "Concave Mirror",
-                            "Plane Mirror",
-                            "Two-way Mirror"
+                            "To kill the bacteria in the batter",
+                            "To add flavor to the batter",
+                            "To change the color of the batter"
                         ]
                     }
                 },
                 {
-                    "name": "Concave Mirrors",
-                    "title": "Concave Mirror Diagram",
-                    "explanation": "A concave mirror is a spherical mirror that curves inward. It is also known as a converging mirror. Concave mirrors are used in telescopes and as shaving mirrors because they can form magnified images.",
+                    "name": "Mixing the Batter",
+                    "title": "Dosa Batter Mixing Image",
+                    "explanation": "Mixing the dosa batter is an essential step in preparing the masala dosa. The batter should be mixed well to remove any lumps and to ensure that all the ingredients are well combined. This process helps to create a smooth and even dosa.",
                     "quiz": {
-                        "question": "What type of mirror can form a real image?",
-                        "correct_answer": "Concave Mirror",
+                        "question": "What is the primary purpose of mixing the dosa batter?",
+                        "correct_answer": "To remove lumps and combine all the ingredients",
                         "wrong_options": [
-                            "Convex Mirror",
-                            "Plane Mirror",
-                            "Parabolic Mirror"
+                            "To add more water to the batter",
+                            "To make the batter thicker",
+                            "To change the flavor of the batter"
                         ]
                     }
                 }
             ]
         },
         {
-            "name": "Elliptical Mirrors",
+            "name": "Assembling the Masala Dosa",
             "subsubtopics": [
                 {
-                    "name": "Elliptical Mirror Properties",
-                    "title": "Elliptical Mirror Properties Diagram",
-                    "explanation": "An elliptical mirror has a curved surface that is shaped like an ellipse. It has two foci, and any ray that passes through one focus will be reflected to the other focus.",
+                    "name": "Spreading the Dosa Batter",
+                    "title": "Dosa Batter Spreading Image",
+                    "explanation": "Spreading the dosa batter is a crucial step in assembling the masala dosa. The batter should be spread evenly and thinly on the tava, allowing it to cook uniformly. This process helps to create a crispy and golden-brown dosa.",
                     "quiz": {
-                        "question": "What is the main characteristic of an elliptical mirror?",
-                        "correct_answer": "It has two foci",
+                        "question": "What is the primary purpose of spreading the dosa batter thinly?",
+                        "correct_answer": "To allow it to cook uniformly and create a crispy texture",
                         "wrong_options": [
-                            "It has one focus",
-                            "It has a flat surface",
-                            "It is a type of convex mirror"
+                            "To make the dosa thicker",
+                            "To add more flavor to the dosa",
+                            "To change the color of the dosa"
                         ]
                     }
                 },
                 {
-                    "name": "Applications of Elliptical Mirrors",
-                    "title": "Elliptical Mirror Applications Diagram",
-                    "explanation": "Elliptical mirrors are used in various applications such as telescopes, microscopes, and laser systems. They are also used in solar energy systems to focus sunlight onto a receiver.",
+                    "name": "Adding the Masala Filling",
+                    "title": "Masala Dosa Filling Image",
+                    "explanation": "Adding the masala filling is a key step in assembling the masala dosa. The filling should be added to the center of the dosa, allowing it to be folded and cooked evenly. This process helps to create a flavorful and aromatic dosa.",
                     "quiz": {
-                        "question": "What is one of the main applications of elliptical mirrors?",
-                        "correct_answer": "Telescopes",
+                        "question": "What is the primary purpose of adding the masala filling to the dosa?",
+                        "correct_answer": "To add flavor and aroma to the dosa",
                         "wrong_options": [
-                            "Microphones",
-                            "Solar Panels",
-                            "Radar Systems"
+                            "To add texture to the dosa",
+                            "To change the color of the dosa",
+                            "To make the dosa thicker"
                         ]
                     }
                 }
             ]
         },
         {
-            "name": "Parabolic Mirrors",
+            "name": "Cooking the Masala Dosa",
             "subsubtopics": [
                 {
-                    "name": "Parabolic Mirror Properties",
-                    "title": "Parabolic Mirror Properties Diagram",
-                    "explanation": "A parabolic mirror is a U-shaped mirror that has a curved surface. It has one focus, and any ray that is parallel to the axis of the mirror will be reflected to the focus.",
+                    "name": "Cooking the Dosa on the Tava",
+                    "title": "Dosa Cooking on Tava Image",
+                    "explanation": "Cooking the dosa on the tava is a crucial step in preparing the masala dosa. The dosa should be cooked on medium heat, allowing it to cook evenly and uniformly. This process helps to create a crispy and golden-brown dosa.",
                     "quiz": {
-                        "question": "What is the main characteristic of a parabolic mirror?",
-                        "correct_answer": "It has one focus",
+                        "question": "What is the primary purpose of cooking the dosa on medium heat?",
+                        "correct_answer": "To cook the dosa evenly and uniformly",
                         "wrong_options": [
-                            "It has two foci",
-                            "It has a flat surface",
-                            "It is a type of convex mirror"
+                            "To cook the dosa quickly",
+                            "To add more flavor to the dosa",
+                            "To change the texture of the dosa"
                         ]
                     }
                 },
                 {
-                    "name": "Applications of Parabolic Mirrors",
-                    "title": "Parabolic Mirror Applications Diagram",
-                    "explanation": "Parabolic mirrors are used in various applications such as telescopes, satellite dishes, and solar energy systems. They are also used in headlights and spotlights to focus light into a beam.",
+                    "name": "Folding and Serving the Dosa",
+                    "title": "Folded Masala Dosa Image",
+                    "explanation": "Folding and serving the dosa is a key step in preparing the masala dosa. The dosa should be folded carefully, allowing it to be served hot and fresh. This process helps to create a delicious and authentic masala dosa experience.",
                     "quiz": {
-                        "question": "What is one of the main applications of parabolic mirrors?",
-                        "correct_answer": "Telescopes",
+                        "question": "What is the primary purpose of folding the dosa?",
+                        "correct_answer": "To serve the dosa hot and fresh",
                         "wrong_options": [
-                            "Microscopes",
-                            "Laser Systems",
-                            "Radar Systems"
+                            "To add more flavor to the dosa",
+                            "To change the texture of the dosa",
+                            "To make the dosa thicker"
                         ]
                     }
                 }
